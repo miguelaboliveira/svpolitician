@@ -1,0 +1,14 @@
+CREATE TABLE Phrase (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  message TEXT NOT NULL
+);
+
+selectAll:
+SELECT *
+FROM Phrase
+
+insert:
+INSERT OR REPLACE INTO Phrase (
+name
+)
+VALUES (?);

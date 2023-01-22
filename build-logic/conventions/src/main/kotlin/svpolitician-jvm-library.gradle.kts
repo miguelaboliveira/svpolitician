@@ -15,5 +15,6 @@ tasks.compileKotlin {
 
 val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 dependencies {
-    // Add common dependencies for all jvm libraries
+    implementation(libs.findLibrary("kotlinx.coroutines").get())
+    testImplementation(libs.findLibrary("kotlinx.coroutinesTest").get())
 }

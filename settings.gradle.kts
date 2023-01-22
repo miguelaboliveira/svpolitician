@@ -24,5 +24,10 @@ rootProject.name = "SVPolitician"
 
 // Subprojects
 include("app")
-include("data:http:public")
-include("data:http:impl")
+include("data:network:public")
+include("data:network:impl")
+include("data:database:public")
+include("data:database:impl")
+include("domain:presenter")
+include("ui:theme")
+include("ui:preview")

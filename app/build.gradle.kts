@@ -1,6 +1,8 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(libs.plugins.android.application.get().pluginId)
+    id(libs.plugins.kotlin.android.get().pluginId)
+    id(libs.plugins.kotlin.kapt.get().pluginId)
+    id(libs.plugins.hilt.get().pluginId)
 }
 
 android {
@@ -24,7 +26,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -51,21 +56,41 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true // Required by hilt
+}
+
+hilt {
+    enableAggregatingTask = true
+}
+
 dependencies {
+    implementation(projects.ui.theme)
+
+    // Compose
     implementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.composeMaterial3)
 
     implementation(libs.androidx.composeUiToolingPreview)
     debugImplementation(libs.androidx.composeUiTooling)
 
+    androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.composeUiTestJunit4)
     debugImplementation(libs.androidx.composeUiTestManifest)
 
-    implementation("androidx.core:core-ktx:1.7.0")
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.compiler)
+
+    testImplementation(libs.hilt.android.testing)
+    kaptTest(libs.hilt.compiler)
+
+    implementation(libs.androidx.core)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("androidx.activity:activity-compose:1.3.1")
-    implementation("androidx.compose.material3:material3:1.0.0-alpha11")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")

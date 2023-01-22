@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
 android {
     buildToolsVersion = libs.findVersion("android.buildTools").get().toString()
     compileSdk = libs.findVersion("android.compileSdk").get().toString().toInt()
@@ -29,7 +31,9 @@ kotlin {
     jvmToolchain(11)
 }
 
-val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 dependencies {
-    // Add common dependencies for all android libraries
+    implementation(libs.findLibrary("androidx.core").get())
+    implementation(libs.findLibrary("kotlinx.coroutinesAndroid").get())
+    testImplementation(libs.findLibrary("kotlinx.coroutinesTest").get())
+    androidTestImplementation(libs.findLibrary("kotlinx.coroutinesTest").get())
 }

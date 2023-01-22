@@ -7,7 +7,9 @@ buildscript {
 
     dependencies {
         classpath(libs.plugin.android)
+        classpath(libs.plugin.hilt)
         classpath(libs.plugin.kotlin)
         classpath(libs.plugin.kotlin.serialization)
+        classpath(libs.plugin.square.sqldelight)
     }
 }
