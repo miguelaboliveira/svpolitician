@@ -4,6 +4,6 @@ plugins {
 
 dependencies {
     api(projects.data.network.public)
-    implementation(libs.bundles.square.retrofit)
-    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.bundles.square.retrofit2)
+    implementation(libs.kotlinx.serializationJson)
 }

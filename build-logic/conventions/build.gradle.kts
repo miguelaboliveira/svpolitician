@@ -5,4 +5,6 @@ plugins {
 dependencies {
     implementation(libs.plugin.android)
     implementation(libs.plugin.kotlin)
+    implementation(libs.plugin.kotlinter)
+    implementation(libs.plugin.dagger.hilt)
 }

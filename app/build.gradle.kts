@@ -2,7 +2,8 @@ plugins {
     id(libs.plugins.android.application.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
     id(libs.plugins.kotlin.kapt.get().pluginId)
-    id(libs.plugins.hilt.get().pluginId)
+    id(libs.plugins.dagger.hilt.get().pluginId)
+    id(libs.plugins.kotlinter.get().pluginId)
 }
 
 android {
@@ -68,25 +69,25 @@ dependencies {
     implementation(projects.ui.theme)
 
     // Compose
-    implementation(platform(libs.androidx.compose.bom))
+    implementation(platform(libs.androidx.composeBom))
     implementation(libs.androidx.composeMaterial3)
 
     implementation(libs.androidx.composeUiToolingPreview)
     debugImplementation(libs.androidx.composeUiTooling)
 
-    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(platform(libs.androidx.composeBom))
     androidTestImplementation(libs.androidx.composeUiTestJunit4)
     debugImplementation(libs.androidx.composeUiTestManifest)
 
     // Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    implementation(libs.dagger.hiltAndroid)
+    kapt(libs.dagger.hiltCompiler)
 
-    androidTestImplementation(libs.hilt.android.testing)
-    kaptAndroidTest(libs.hilt.compiler)
+    androidTestImplementation(libs.dagger.hiltAndroidTesting)
+    kaptAndroidTest(libs.dagger.hiltCompiler)
 
-    testImplementation(libs.hilt.android.testing)
-    kaptTest(libs.hilt.compiler)
+    testImplementation(libs.dagger.hiltAndroidTesting)
+    kaptTest(libs.dagger.hiltCompiler)
 
     implementation(libs.androidx.core)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")

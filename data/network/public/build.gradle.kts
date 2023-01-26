@@ -4,6 +4,6 @@ plugins {
 }
 
 dependencies {
-    implementation(libs.square.retrofit)
-    implementation(libs.kotlinx.serialization.core)
+    implementation(libs.square.retrofit2)
+    implementation(libs.kotlinx.serializationCore)
 }
