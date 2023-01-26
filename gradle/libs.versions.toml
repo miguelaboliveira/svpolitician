@@ -17,7 +17,7 @@ plugin-kotlinter = "3.13.0"
 square-okhttp = "4.10.0"
 square-retrofit2 = "2.9.0"
 square-retrofit2-converter-serialization = "0.8.0"
-square-sqlDelight = "1.5.4"
+square-sqlDelight = "1.5.5"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "androidx-activity" }
