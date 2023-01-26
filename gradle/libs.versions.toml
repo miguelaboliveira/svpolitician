@@ -77,4 +77,4 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "plugin-kotlinter" }
-square-sqldelight = { id = "com.squareup.sqldelight", version.ref = "square-sqlDelight" }
+square-sqlDelight = { id = "com.squareup.sqldelight", version.ref = "square-sqlDelight" }

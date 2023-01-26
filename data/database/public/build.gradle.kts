@@ -1,6 +1,6 @@
 plugins {
     id("svpolitician-jvm-library")
-    id(libs.plugins.square.sqldelight.get().pluginId)
+    id(libs.plugins.square.sqlDelight.get().pluginId)
 }
 
 sqldelight {
