@@ -5,10 +5,15 @@ CREATE TABLE Phrase (
 
 selectAll:
 SELECT *
+FROM Phrase;
+
+select:
+SELECT *
 FROM Phrase
+WHERE id = ?;
 
 insert:
 INSERT OR REPLACE INTO Phrase (
-name
+message
 )
-VALUES (?);
+VALUES ?;

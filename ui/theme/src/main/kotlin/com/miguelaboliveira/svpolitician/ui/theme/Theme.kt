@@ -51,7 +51,6 @@ public fun SVPoliticianTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
         content = content
     )
 }

@@ -24,12 +24,14 @@ rootProject.name = "SVPolitician"
 
 // Subprojects
 include("app")
-include("data:network:public")
-include("data:network:impl")
-include("data:network:fake")
 include("data:database:public")
 include("data:database:impl")
 include("data:database:fake")
+include("data:ephemeral:core")
+include("data:ephemeral:android")
+include("data:network:public")
+include("data:network:impl")
+include("data:network:fake")
 include("domain:presenter")
 include("ui:theme")
 include("ui:preview")

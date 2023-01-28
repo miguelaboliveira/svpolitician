@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.miguelaboliveira.svpolitician.ui.theme.SVPoliticianTheme
 
-class MainActivity : ComponentActivity() {
+public class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -30,13 +30,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
+private fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+private fun DefaultPreview() {
     SVPoliticianTheme {
         Greeting("Android")
     }

@@ -10,7 +10,6 @@ android {
     namespace = "com.miguelaboliveira.svpolitician"
     buildToolsVersion = libs.versions.android.buildTools.get()
     compileSdk = libs.versions.android.compileSdk.get().toInt()
-
     defaultConfig {
         applicationId = "com.miguelaboliveira.svpolitician"
         minSdk = libs.versions.android.minSdk.get().toInt()
@@ -23,7 +22,17 @@ android {
             useSupportLibrary = true
         }
     }
-
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        allWarningsAsErrors = true
+        freeCompilerArgs += "-Xexplicit-api=strict" // https://youtrack.jetbrains.com/issue/KT-37652
+    }
+    lint {
+        warningsAsErrors = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -32,17 +41,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-        allWarningsAsErrors = true
-    }
-    lint {
-        warningsAsErrors = true
     }
     buildFeatures {
         compose = true
@@ -55,6 +53,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+}
+
+kotlin {
+    explicitApi()
+    jvmToolchain(11)
 }
 
 kapt {
@@ -89,10 +92,18 @@ dependencies {
     testImplementation(libs.dagger.hiltAndroidTesting)
     kaptTest(libs.dagger.hiltCompiler)
 
+    // Database
+    implementation(projects.data.database.impl)
+    testImplementation(projects.data.database.fake)
+
+    // Network
+    implementation(projects.data.network.impl)
+    testImplementation(projects.data.network.fake)
+
     implementation(libs.androidx.core)
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
-    implementation("androidx.activity:activity-compose:1.6.1")
-    testImplementation("junit:junit:4.13.2")
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.activityCompose)
+    testImplementation(libs.junit)
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
