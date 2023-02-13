@@ -26,7 +26,7 @@ public class HttpApiImpl(
     @OptIn(ExperimentalSerializationApi::class)
     private fun createRetrofit(
         baseUrl: String,
-        okHttpClient: OkHttpClient,
+        okHttpClient: OkHttpClient
     ) = Retrofit.Builder()
         .baseUrl(baseUrl)
         .callFactory(okHttpClient)

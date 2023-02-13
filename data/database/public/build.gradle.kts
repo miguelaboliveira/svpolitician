@@ -9,3 +9,9 @@ sqldelight {
         schemaOutputDirectory = file("src/main/sqldelight/schema")
     }
 }
+
+tasks.lintKotlinMain {
+    exclude(
+        "/com/miguelaboliveira/svpolitician/data/database/**"
+    )
+}
