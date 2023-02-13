@@ -9,7 +9,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-public object DatabaseModule {
+public object NetworkModule {
 
     @Provides
     @Singleton
