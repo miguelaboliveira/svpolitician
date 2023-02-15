@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.miguelaboliveira.svpolitician.feature.history.domain.GetPhrasesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
@@ -25,7 +27,7 @@ public class HistoryViewModel @Inject constructor(
                         message = it.message,
                         date = it.date
                     )
-                }
+                }.toImmutableList()
             )
         }
         .stateIn(
@@ -33,7 +35,7 @@ public class HistoryViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = HistoryUiState(
                 loading = true,
-                phrases = emptyList()
+                phrases = persistentListOf()
             )
         )
 }

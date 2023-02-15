@@ -78,6 +78,7 @@ dependencies {
 
     implementation(projects.feature.home.ui)
     implementation(projects.feature.history.ui)
+    implementation(projects.feature.settings.ui)
 
     // Compose
     implementation(platform(libs.androidx.composeBom))
@@ -108,10 +109,16 @@ dependencies {
     implementation(projects.data.network.impl)
     testImplementation(projects.data.network.fake)
 
+    // UserPreferences
+    implementation(projects.data.userpreferences.impl)
+    testImplementation(projects.data.userpreferences.fake)
+
     implementation(libs.androidx.core)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.activityCompose)
+
     testImplementation(libs.junit)
+    androidTestImplementation(libs.junit)
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }

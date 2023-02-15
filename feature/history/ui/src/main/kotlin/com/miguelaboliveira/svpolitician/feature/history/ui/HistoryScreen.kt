@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.miguelaboliveira.svpolitician.ui.preview.FullPreviews
 import com.miguelaboliveira.svpolitician.ui.theme.SVPoliticianTheme
+import kotlinx.collections.immutable.ImmutableList
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -82,7 +83,7 @@ private fun Empty(
 
 @Composable
 private fun PhrasesList(
-    phrases: List<HistoryUiState.Phrase>,
+    phrases: ImmutableList<HistoryUiState.Phrase>,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier) {
@@ -104,10 +105,10 @@ private fun PhrasesList(
 private fun Phrase(
     phrase: String,
     date: String,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.padding(vertical = 16.dp),
+        modifier = modifier.padding(vertical = 16.dp)
     ) {
         Text(
             modifier = Modifier.fillMaxWidth(),
@@ -123,7 +124,6 @@ private fun Phrase(
         )
     }
 }
-
 
 @FullPreviews
 @Composable

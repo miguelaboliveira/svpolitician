@@ -3,15 +3,14 @@ plugins {
 }
 
 android {
-    namespace = "com.miguelaboliveira.svpolitician.feature.history.ui"
+    namespace = "com.miguelaboliveira.svpolitician.feature.settings.ui"
 }
 
 dependencies {
-    implementation(projects.feature.history.domain)
+    implementation(projects.feature.settings.domain)
     implementation(projects.ui.preview)
     implementation(projects.ui.theme)
     kapt(libs.androidx.lifecycleCompiler)
     implementation(libs.androidx.lifecycleRuntimeCompose)
-    implementation(libs.kotlinx.collectionsImmutable)
     testImplementation(libs.androidx.lifecycleRuntimeTesting)
 }

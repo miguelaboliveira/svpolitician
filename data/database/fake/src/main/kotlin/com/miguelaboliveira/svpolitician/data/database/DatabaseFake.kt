@@ -3,7 +3,7 @@ package com.miguelaboliveira.svpolitician.data.database
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.sqlite.driver.JdbcSqliteDriver
 
-public fun database(): SVPoliticianDatabase = SVPoliticianDatabase(
+public fun databaseFake(): SVPoliticianDatabase = SVPoliticianDatabase(
     driver = createSqlDriver(),
     PhraseAdapter = Phrase.Adapter(
         dateAdapter = InstantColumnAdapter
