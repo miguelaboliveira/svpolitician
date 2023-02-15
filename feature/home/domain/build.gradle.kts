@@ -7,7 +7,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.data.database.public)
+    api(projects.data.database.public)
     implementation(projects.data.network.public)
     implementation(libs.square.sqlDelightCoroutinesExt)
 }

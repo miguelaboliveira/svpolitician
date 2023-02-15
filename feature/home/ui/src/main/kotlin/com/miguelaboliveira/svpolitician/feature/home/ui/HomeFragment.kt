@@ -25,13 +25,15 @@ public class HomeFragment : Fragment() {
     ): View {
         return ComposeView(requireContext())
             .apply {
-                setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+                setViewCompositionStrategy(
+                    ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed
+                )
                 setContent {
                     SVPoliticianTheme {
                         val uiState by viewModel.uiState.collectAsStateWithLifecycle()
                         HomeScreen(
                             state = uiState,
-                            onPullToRefresh = viewModel::refresh
+                            onFetchClicked = viewModel::refresh
                         )
                     }
                 }

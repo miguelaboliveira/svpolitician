@@ -25,7 +25,6 @@ android {
 
 dependencies {
     implementation(platform(libs.findLibrary("androidx.composeBom").get()))
-    implementation(libs.findLibrary("androidx.composeMaterial").get())
     implementation(libs.findLibrary("androidx.composeMaterial3").get())
     implementation(libs.findLibrary("androidx.composeMaterialIconsCore").get())
     implementation(libs.findLibrary("androidx.composeMaterialIconsExtended").get())

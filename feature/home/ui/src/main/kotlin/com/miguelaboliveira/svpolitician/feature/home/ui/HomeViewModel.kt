@@ -30,7 +30,12 @@ public class HomeViewModel @Inject constructor(
         HomeUiState(
             loading = loading,
             refreshing = refreshing,
-            phrase = HomeUiState.Phrase(mostRecentPhrase.message, mostRecentPhrase.date)
+            phrase = mostRecentPhrase?.let {
+                HomeUiState.Phrase(
+                    mostRecentPhrase.message,
+                    mostRecentPhrase.date
+                )
+            }
         )
     }.stateIn(
         scope = viewModelScope,
@@ -41,12 +46,6 @@ public class HomeViewModel @Inject constructor(
             phrase = null
         )
     )
-
-    init {
-        viewModelScope.launch {
-            fetchPhraseUseCase(loadingState)
-        }
-    }
 
     public fun refresh() {
         viewModelScope.launch {

@@ -4,7 +4,10 @@ import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.sqlite.driver.JdbcSqliteDriver
 
 public fun database(): SVPoliticianDatabase = SVPoliticianDatabase(
-    driver = createSqlDriver()
+    driver = createSqlDriver(),
+    PhraseAdapter = Phrase.Adapter(
+        dateAdapter = InstantColumnAdapter
+    )
 )
 
 private fun createSqlDriver(): SqlDriver = JdbcSqliteDriver(
