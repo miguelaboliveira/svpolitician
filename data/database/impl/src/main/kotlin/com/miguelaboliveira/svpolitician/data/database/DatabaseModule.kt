@@ -19,7 +19,10 @@ public object DatabaseModule {
     public fun database(
         application: Application
     ): SVPoliticianDatabase = SVPoliticianDatabase(
-        driver = createSqlDriver(application)
+        driver = createSqlDriver(application),
+        PhraseAdapter = Phrase.Adapter(
+            dateAdapter = InstantColumnAdapter
+        )
     )
 }
 
