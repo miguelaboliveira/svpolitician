@@ -14,7 +14,8 @@ LIMIT 1;
 
 selectAll:
 SELECT *
-FROM Phrase;
+FROM Phrase
+ORDER BY date DESC;
 
 select:
 SELECT *

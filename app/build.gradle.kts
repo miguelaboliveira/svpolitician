@@ -77,6 +77,7 @@ dependencies {
     implementation(projects.ui.theme)
 
     implementation(projects.feature.home.ui)
+    implementation(projects.feature.history.ui)
 
     // Compose
     implementation(platform(libs.androidx.composeBom))

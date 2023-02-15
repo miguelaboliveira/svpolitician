@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.miguelaboliveira.svpolitician.databinding.ActivityMainBinding
+import com.miguelaboliveira.svpolitician.feature.history.ui.HistoryFragment
 import com.miguelaboliveira.svpolitician.feature.home.ui.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,9 +17,10 @@ public class MainActivity : AppCompatActivity() {
         binding.viewPager.apply {
             isUserInputEnabled = false
             adapter = object : FragmentStateAdapter(supportFragmentManager, lifecycle) {
-                override fun getItemCount(): Int = 1
+                override fun getItemCount(): Int = 2
                 override fun createFragment(position: Int): Fragment = when (position) {
                     0 -> HomeFragment()
+                    1 -> HistoryFragment()
                     else -> error("Invalid position: $position")
                 }
             }
@@ -27,6 +29,11 @@ public class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_home -> {
                     binding.viewPager.setCurrentItem(0, false)
+                    true
+                }
+
+                R.id.nav_history -> {
+                    binding.viewPager.setCurrentItem(1, false)
                     true
                 }
 
