@@ -1,7 +1,16 @@
+import java.time.Instant;
+
 CREATE TABLE Phrase (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  message TEXT NOT NULL
+  message TEXT NOT NULL,
+  date INTEGER AS Instant NOT NULL
 );
+
+selectMostRecent:
+SELECT *
+FROM Phrase
+ORDER BY date DESC
+LIMIT 1;
 
 selectAll:
 SELECT *
@@ -14,6 +23,7 @@ WHERE id = ?;
 
 insert:
 INSERT OR REPLACE INTO Phrase (
-message
+message,
+date
 )
-VALUES ?;
+VALUES (?, ?);

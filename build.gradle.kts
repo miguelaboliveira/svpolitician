@@ -8,11 +8,12 @@ buildscript {
 
     dependencies {
         classpath(libs.plugin.android)
+        classpath(libs.plugin.androidx.navigationSafeArgs)
         classpath(libs.plugin.dagger.hilt)
         classpath(libs.plugin.kotlin)
         classpath(libs.plugin.kotlin.serialization)
         classpath(libs.plugin.kotlinter)
-        classpath("com.twitter.compose.rules:ktlint:0.0.26")
+        classpath(libs.plugin.twitter.compose)
         classpath(libs.plugin.square.sqlDelight)
     }
 }

@@ -1,3 +1,5 @@
+import gradle.kotlin.dsl.accessors._d401618623091ee5b3a95a5074642989.testImplementation
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -37,4 +39,11 @@ dependencies {
     implementation(libs.findLibrary("kotlinx.coroutinesAndroid").get())
     testImplementation(libs.findLibrary("kotlinx.coroutinesTest").get())
     androidTestImplementation(libs.findLibrary("kotlinx.coroutinesTest").get())
+
+    testImplementation(libs.findLibrary("junit").get())
+    testImplementation(libs.findLibrary("kotlin.test").get())
+    testImplementation(libs.findLibrary("kotlin.testJunit").get())
+    androidTestImplementation(libs.findLibrary("junit").get())
+    androidTestImplementation(libs.findLibrary("kotlin.test").get())
+    androidTestImplementation(libs.findLibrary("kotlin.testJunit").get())
 }

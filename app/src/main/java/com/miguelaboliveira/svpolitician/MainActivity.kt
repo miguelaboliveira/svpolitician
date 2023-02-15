@@ -1,43 +1,39 @@
 package com.miguelaboliveira.svpolitician
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.miguelaboliveira.svpolitician.ui.theme.SVPoliticianTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.miguelaboliveira.svpolitician.databinding.ActivityMainBinding
+import com.miguelaboliveira.svpolitician.feature.home.ui.HomeFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-public class MainActivity : ComponentActivity() {
+@AndroidEntryPoint
+public class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            SVPoliticianTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.viewPager.apply {
+            isUserInputEnabled = false
+            adapter = object : FragmentStateAdapter(supportFragmentManager, lifecycle) {
+                override fun getItemCount(): Int = 1
+                override fun createFragment(position: Int): Fragment = when (position) {
+                    0 -> HomeFragment()
+                    else -> error("Invalid position: $position")
                 }
             }
         }
-    }
-}
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_home -> {
+                    binding.viewPager.setCurrentItem(0, false)
+                    true
+                }
 
-@Composable
-private fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
+                else -> error("Invalid itemId: ${it.itemId}")
+            }
+        }
 
-@Preview(showBackground = true)
-@Composable
-private fun DefaultPreview() {
-    SVPoliticianTheme {
-        Greeting("Android")
+        setContentView(binding.root)
     }
 }
