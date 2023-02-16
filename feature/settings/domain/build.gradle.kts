@@ -1,11 +1,8 @@
 plugins {
-    id("svpolitician-android-library-hilt")
-}
-
-android {
-    namespace = "com.miguelaboliveira.svpolitician.feature.settings.domain"
+    id("svpolitician-jvm-library")
 }
 
 dependencies {
-    api(projects.data.userpreferences.public)
+    implementation(projects.data.userpreferences.public)
+    implementation(libs.javax.inject)
 }

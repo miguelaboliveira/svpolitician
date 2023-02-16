@@ -47,6 +47,12 @@ public class HomeViewModel @Inject constructor(
         )
     )
 
+    init {
+        viewModelScope.launch {
+            fetchPhraseUseCase(refreshState)
+        }
+    }
+
     public fun refresh() {
         viewModelScope.launch {
             fetchPhraseUseCase(refreshState)
