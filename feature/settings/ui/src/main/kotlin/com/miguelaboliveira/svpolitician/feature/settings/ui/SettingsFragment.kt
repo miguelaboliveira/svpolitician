@@ -8,7 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.miguelaboliveira.svpolitician.ui.fragment.ext.svPoliticianComposeView
+import com.miguelaboliveira.svpolitician.ui.fragmentext.svPoliticianComposeView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -2,6 +2,7 @@ package com.miguelaboliveira.svpolitician
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.miguelaboliveira.svpolitician.databinding.ActivityMainBinding
@@ -14,10 +15,12 @@ import dagger.hilt.android.AndroidEntryPoint
 public class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         binding.viewPager.apply {
             isUserInputEnabled = false
-            adapter = object : FragmentStateAdapter(supportFragmentManager, lifecycle) {
+            offscreenPageLimit = 2
+            adapter = object : FragmentStateAdapter(this@MainActivity) {
                 override fun getItemCount(): Int = 3
                 override fun createFragment(position: Int): Fragment = when (position) {
                     0 -> HomeFragment()
@@ -40,7 +43,7 @@ public class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_settings -> {
-                    binding.viewPager.setCurrentItem(3, false)
+                    binding.viewPager.setCurrentItem(2, false)
                     true
                 }
 

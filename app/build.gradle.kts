@@ -116,6 +116,7 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.activityCompose)
+    implementation(libs.androidx.viewPager2)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.junit)

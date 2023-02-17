@@ -1,4 +1,4 @@
-package com.miguelaboliveira.svpolitician.ui.fragment.ext
+package com.miguelaboliveira.svpolitician.ui.fragmentext
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
