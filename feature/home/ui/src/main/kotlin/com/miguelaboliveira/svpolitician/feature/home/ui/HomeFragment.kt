@@ -24,7 +24,8 @@ public class HomeFragment : Fragment() {
         val uiState by viewModel.uiState.collectAsStateWithLifecycle()
         HomeScreen(
             state = uiState,
-            onFetchClicked = viewModel::refresh
+            onFetchClicked = viewModel::refresh,
+            onErrorConsumed = viewModel::consumeError
         )
     }
 }

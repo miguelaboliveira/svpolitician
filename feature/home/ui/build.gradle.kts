@@ -12,6 +12,8 @@ dependencies {
     implementation(projects.ui.preview)
     implementation(projects.ui.theme)
     implementation(projects.ui.fragmentext)
+    implementation(projects.ui.composeext)
+    implementation(projects.ui.error)
     kapt(libs.androidx.lifecycleCompiler)
     implementation(libs.androidx.lifecycleRuntimeCompose)
     testImplementation(libs.androidx.lifecycleRuntimeTesting)
