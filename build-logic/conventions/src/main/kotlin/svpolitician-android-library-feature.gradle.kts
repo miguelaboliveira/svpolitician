@@ -7,6 +7,7 @@ plugins {
 val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 dependencies {
+    implementation(libs.findLibrary("androidx.fragment").get())
     implementation(libs.findLibrary("androidx.navigation").get())
     implementation(libs.findLibrary("androidx.hiltNavigationFragment").get())
 
