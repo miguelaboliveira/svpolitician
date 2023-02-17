@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="settings_top_bar_title">Settings</string>
+    <string name="settings_periodic_update_header">Periodic update</string>
+    <string name="settings_periodic_update_description">Fetching a new speech every %s</string>
+    <string name="settings_stored_data_header">Local data</string>
+    <string name="settings_stored_data_button">Clear local data</string>
+    <string name="settings_version">Version: %s (%d)</string>
 </resources>

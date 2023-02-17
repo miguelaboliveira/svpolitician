@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -66,7 +68,7 @@ public fun HomeScreen(
         snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text(text = "Home") }
+                title = { Text(text = LocalContext.current.getString(R.string.home_top_bar_title)) }
             )
         },
         bottomBar = {
@@ -190,7 +192,9 @@ private fun Phrase(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Box(
-            modifier = Modifier.weight(1F),
+            modifier = Modifier
+                .weight(1F)
+                .verticalScroll(rememberScrollState()),
             contentAlignment = Alignment.Center
         ) {
             AnimatedContent(targetState = phrase) { targetPhrase ->
@@ -198,9 +202,7 @@ private fun Phrase(
                     text = targetPhrase,
                     style = MaterialTheme.typography.displayLarge
                         .copy(brush = brush),
-                    textAlign = TextAlign.Center,
-                    maxLines = 10,
-                    overflow = TextOverflow.Ellipsis
+                    textAlign = TextAlign.Center
                 )
             }
         }
@@ -217,7 +219,7 @@ private fun Phrase(
         ) {
             Text(text = LocalContext.current.getString(R.string.home_get_new_button))
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }
 

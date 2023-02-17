@@ -10,24 +10,29 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import java.time.Duration
 import javax.inject.Inject
+import javax.inject.Named
 
 @HiltViewModel
 public class SettingsViewModel @Inject constructor(
-    getSyncIntervalUseCase: GetSyncIntervalUseCase
+    getSyncIntervalUseCase: GetSyncIntervalUseCase,
+    @Named("versionName") versionName: String,
+    @Named("versionCode") versionCode: Int
 ) : ViewModel() {
 
     public val uiState: StateFlow<SettingsUiState> = getSyncIntervalUseCase()
         .map {
             SettingsUiState(
                 syncInterval = Duration.ofMinutes(it),
-                version = "TODO FROM SOMEWHERE"
+                versionName = versionName,
+                versionCode = versionCode
             )
         }.stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = SettingsUiState(
                 syncInterval = Duration.ZERO,
-                version = ""
+                versionName = versionName,
+                versionCode = versionCode
             )
         )
 }

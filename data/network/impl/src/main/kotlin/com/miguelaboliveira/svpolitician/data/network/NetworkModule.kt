@@ -14,7 +14,6 @@ public object NetworkModule {
     @Provides
     @Singleton
     public fun httpApi(
-        @Named("baseUrl") baseUrl: String,
-        @Named("debug") debug: Boolean
-    ): HttpApi = HttpApiImpl(baseUrl, debug)
+        @Named("baseUrl") baseUrl: String
+    ): HttpApi = HttpApiImpl(baseUrl)
 }

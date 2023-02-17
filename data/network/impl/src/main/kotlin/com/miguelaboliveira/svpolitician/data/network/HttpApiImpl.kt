@@ -1,6 +1,7 @@
 package com.miguelaboliveira.svpolitician.data.network
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.miguelaboliveira.svpolitician.data.network.impl.BuildConfig
 import com.miguelaboliveira.svpolitician.data.network.phares.PhraseApi
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
@@ -11,15 +12,14 @@ import retrofit2.Retrofit
 import retrofit2.create
 
 public class HttpApiImpl(
-    baseUrl: String,
-    debug: Boolean
+    baseUrl: String
 ) : HttpApi {
     override val phraseApi: PhraseApi by lazy { retrofit.create() }
 
     private val retrofit: Retrofit by lazy {
         createRetrofit(
             baseUrl = baseUrl,
-            okHttpClient = createOkHttpClient(debug)
+            okHttpClient = createOkHttpClient()
         )
     }
 
@@ -33,11 +33,11 @@ public class HttpApiImpl(
         .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
         .build()
 
-    private fun createOkHttpClient(debug: Boolean) = OkHttpClient.Builder()
+    private fun createOkHttpClient() = OkHttpClient.Builder()
         .apply {
             addNetworkInterceptor(
                 HttpLoggingInterceptor().apply {
-                    level = if (debug) {
+                    level = if (BuildConfig.DEBUG) {
                         HttpLoggingInterceptor.Level.BODY
                     } else {
                         HttpLoggingInterceptor.Level.NONE

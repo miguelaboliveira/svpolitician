@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="home_top_bar_title">Home</string>
     <string name="home_get_new_button">I have another speech</string>
     <string name="home_get_first_button">I have a speech</string>
     <string name="home_no_phrase">It seems that you haven\'t gotten any speech yet! 🤔</string>

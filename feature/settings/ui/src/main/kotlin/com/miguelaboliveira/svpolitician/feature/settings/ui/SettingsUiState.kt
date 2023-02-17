@@ -4,5 +4,6 @@ import java.time.Duration
 
 public data class SettingsUiState(
     val syncInterval: Duration,
-    val version: String
+    val versionName: String,
+    val versionCode: Int
 )

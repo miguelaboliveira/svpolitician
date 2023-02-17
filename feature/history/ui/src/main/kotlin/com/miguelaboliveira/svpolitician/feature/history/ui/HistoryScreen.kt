@@ -47,7 +47,9 @@ public fun HistoryScreen(
         modifier = modifier,
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text(text = "History") }
+                title = {
+                    Text(text = LocalContext.current.getString(R.string.history_top_bar_title))
+                }
             )
         }
     ) {
@@ -69,7 +71,7 @@ public fun HistoryScreen(
 
                 state.phrases.isEmpty() -> {
                     Empty(
-                        modifier = Modifier.align(Alignment.Center),
+                        modifier = Modifier.align(Alignment.Center)
                     )
                 }
 
@@ -144,12 +146,12 @@ private fun Phrase(
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = phrase,
-                style = MaterialTheme.typography.titleSmall,
+                style = MaterialTheme.typography.titleSmall
             )
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = date,
-                style = MaterialTheme.typography.labelSmall,
+                style = MaterialTheme.typography.labelSmall
             )
         }
     }

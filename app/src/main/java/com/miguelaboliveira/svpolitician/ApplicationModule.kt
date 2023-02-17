@@ -15,6 +15,10 @@ public object ApplicationModule {
     public fun baseUrl(): String = "https://techy-api.vercel.app"
 
     @Provides
-    @Named("debug")
-    public fun debug(): Boolean = BuildConfig.DEBUG
+    @Named("versionName")
+    public fun versionName(): String = BuildConfig.VERSION_NAME
+
+    @Provides
+    @Named("versionCode")
+    public fun versionCode(): Int = BuildConfig.VERSION_CODE
 }
