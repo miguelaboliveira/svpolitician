@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.miguelaboliveira.svpolitician.core.ui.design"
 }
+
+dependencies {
+    api(libs.google.material)
+}

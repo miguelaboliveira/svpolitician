@@ -70,10 +70,6 @@ hilt {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.viewpager2:viewpager2:1.0.0")
-    implementation("com.google.android.material:material:1.8.0")
-
     implementation(projects.core.ui.design)
 
     implementation(projects.feature.home.ui)
@@ -114,6 +110,7 @@ dependencies {
     testImplementation(projects.core.userpreferences.fake)
 
     implementation(libs.androidx.core)
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.activityCompose)
     implementation(libs.androidx.viewPager2)

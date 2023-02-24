@@ -23,6 +23,7 @@ square-sqlDelight = "1.5.5"
 [libraries]
 androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+androidx-appcompat = "androidx.appcompat:appcompat:1.6.1"
 androidx-composeBom = "androidx.compose:compose-bom:2023.01.00"
 androidx-composeCompiler = { module = "androidx.compose.compiler:compiler", version.ref = "androidx-compose-compiler" }
 androidx-composeMaterial3 = { module = "androidx.compose.material3:material3" }
@@ -47,6 +48,7 @@ androidx-viewPager2 = "androidx.viewpager2:viewpager2:1.1.0-beta01"
 dagger-hiltAndroid = { module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt" }
 dagger-hiltCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger-hilt" }
 dagger-hiltAndroidTesting = { module = "com.google.dagger:hilt-android-testing", version.ref = "dagger-hilt" }
+google-material = "com.google.android.material:material:1.8.0"
 javax-inject = "javax.inject:javax.inject:1"
 junit = "junit:junit:4.13.2"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }

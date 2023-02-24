@@ -1,4 +1,5 @@
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 
 // Locations of Gradle Plugins
 pluginManagement {
@@ -16,6 +17,18 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+    }
+}
+
+// Gradle dependencies --scan
+plugins {
+    `gradle-enterprise`
+}
+
+gradleEnterprise {
+    buildScan {
+        termsOfServiceUrl = "https://gradle.com/terms-of-service"
+        termsOfServiceAgree = "yes"
     }
 }
 
