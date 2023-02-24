@@ -9,11 +9,10 @@ android {
 
 dependencies {
     implementation(projects.feature.home.domain)
-    implementation(projects.ui.preview)
-    implementation(projects.ui.theme)
-    implementation(projects.ui.fragmentext)
-    implementation(projects.ui.composeext)
-    implementation(projects.ui.error)
+    implementation(projects.core.ui.design)
+    implementation(projects.core.ui.fragmentext)
+    implementation(projects.core.ui.composeext)
+    implementation(projects.core.ui.error)
     kapt(libs.androidx.lifecycleCompiler)
     implementation(libs.androidx.lifecycleRuntimeCompose)
     testImplementation(libs.androidx.lifecycleRuntimeTesting)

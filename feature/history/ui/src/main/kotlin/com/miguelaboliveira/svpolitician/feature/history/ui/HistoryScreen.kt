@@ -28,8 +28,8 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.miguelaboliveira.svpolitician.ui.preview.FullPreviews
-import com.miguelaboliveira.svpolitician.ui.theme.SVPoliticianTheme
+import com.miguelaboliveira.svpolitician.core.ui.design.SVPoliticianTheme
+import com.miguelaboliveira.svpolitician.core.ui.design.preview.FullPreviews
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import java.time.Instant

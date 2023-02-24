@@ -18,8 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.miguelaboliveira.svpolitician.ui.preview.FullPreviews
-import com.miguelaboliveira.svpolitician.ui.theme.SVPoliticianTheme
+import com.miguelaboliveira.svpolitician.core.ui.design.SVPoliticianTheme
+import com.miguelaboliveira.svpolitician.core.ui.design.preview.FullPreviews
 import java.time.Duration
 
 @OptIn(ExperimentalMaterial3Api::class)

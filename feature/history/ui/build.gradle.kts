@@ -9,9 +9,8 @@ android {
 
 dependencies {
     implementation(projects.feature.history.domain)
-    implementation(projects.ui.preview)
-    implementation(projects.ui.theme)
-    implementation(projects.ui.fragmentext)
+    implementation(projects.core.ui.design)
+    implementation(projects.core.ui.fragmentext)
     kapt(libs.androidx.lifecycleCompiler)
     implementation(libs.androidx.lifecycleRuntimeCompose)
     implementation(libs.kotlinx.collectionsImmutable)

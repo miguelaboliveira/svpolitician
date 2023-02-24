@@ -74,7 +74,7 @@ dependencies {
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.google.android.material:material:1.8.0")
 
-    implementation(projects.ui.theme)
+    implementation(projects.core.ui.design)
 
     implementation(projects.feature.home.ui)
     implementation(projects.feature.history.ui)
