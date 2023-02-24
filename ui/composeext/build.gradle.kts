@@ -4,4 +4,5 @@ plugins {
 
 android {
     namespace = "com.miguelaboliveira.svpolitician.ui.composeext"
+    resourcePrefix = "composeext"
 }

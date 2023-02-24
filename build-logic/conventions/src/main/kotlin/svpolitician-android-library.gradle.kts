@@ -1,5 +1,3 @@
-import gradle.kotlin.dsl.accessors._d401618623091ee5b3a95a5074642989.testImplementation
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
