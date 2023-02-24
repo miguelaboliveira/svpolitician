@@ -1,7 +1,7 @@
 package com.miguelaboliveira.svpolitician.feature.history.domain
 
-import com.miguelaboliveira.svpolitician.data.database.Phrase
-import com.miguelaboliveira.svpolitician.data.database.SVPoliticianDatabase
+import com.miguelaboliveira.svpolitician.core.database.Phrase
+import com.miguelaboliveira.svpolitician.core.database.SVPoliticianDatabase
 import com.squareup.sqldelight.runtime.coroutines.asFlow
 import com.squareup.sqldelight.runtime.coroutines.mapToList
 import kotlinx.coroutines.flow.Flow

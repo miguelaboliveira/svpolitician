@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    api(projects.data.database.public)
+    api(projects.core.database.public)
     implementation(libs.javax.inject)
     implementation(libs.square.sqlDelightCoroutinesExt)
 }

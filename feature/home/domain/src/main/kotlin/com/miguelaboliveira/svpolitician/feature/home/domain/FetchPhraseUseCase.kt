@@ -1,7 +1,7 @@
 package com.miguelaboliveira.svpolitician.feature.home.domain
 
-import com.miguelaboliveira.svpolitician.data.database.SVPoliticianDatabase
-import com.miguelaboliveira.svpolitician.data.network.HttpApi
+import com.miguelaboliveira.svpolitician.core.database.SVPoliticianDatabase
+import com.miguelaboliveira.svpolitician.core.network.HttpApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.time.Instant

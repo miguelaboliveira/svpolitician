@@ -102,16 +102,16 @@ dependencies {
     kaptTest(libs.dagger.hiltCompiler)
 
     // Database
-    implementation(projects.data.database.impl)
-    testImplementation(projects.data.database.fake)
+    implementation(projects.core.database.impl)
+    testImplementation(projects.core.database.fake)
 
     // Network
-    implementation(projects.data.network.impl)
-    testImplementation(projects.data.network.fake)
+    implementation(projects.core.network.impl)
+    testImplementation(projects.core.network.fake)
 
     // UserPreferences
-    implementation(projects.data.userpreferences.impl)
-    testImplementation(projects.data.userpreferences.fake)
+    implementation(projects.core.userpreferences.impl)
+    testImplementation(projects.core.userpreferences.fake)
 
     implementation(libs.androidx.core)
     implementation(libs.androidx.activity)

@@ -1,6 +1,6 @@
 package com.miguelaboliveira.svpolitician.feature.settings.domain
 
-import com.miguelaboliveira.svpolitician.data.userpreferences.UserPreferencesStore
+import com.miguelaboliveira.svpolitician.core.userpreferences.UserPreferencesStore
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
