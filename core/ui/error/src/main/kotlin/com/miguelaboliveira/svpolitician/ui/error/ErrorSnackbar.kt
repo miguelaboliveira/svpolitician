@@ -4,6 +4,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
+import com.miguelaboliveira.svpolitician.core.ui.error.R
 
 @Composable
 public fun ErrorHandler(
