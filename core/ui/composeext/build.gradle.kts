@@ -5,4 +5,8 @@ plugins {
 android {
     namespace = "com.miguelaboliveira.svpolitician.core.ui.composeext"
     resourcePrefix = "composeext"
+
+    buildFeatures {
+        buildConfig = true
+    }
 }

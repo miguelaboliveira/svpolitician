@@ -4,6 +4,10 @@ plugins {
 
 android {
     namespace = "com.miguelaboliveira.svpolitician.core.network.impl"
+
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
