@@ -78,7 +78,11 @@ dependencies {
 
     // Compose
     implementation(platform(libs.androidx.composeBom))
+    implementation(libs.androidx.composeAnimation)
+    implementation(libs.androidx.composeFoundation)
     implementation(libs.androidx.composeMaterial3)
+    implementation(libs.androidx.composeRuntime)
+    implementation(libs.androidx.composeUi)
 
     implementation(libs.androidx.composeUiToolingPreview)
     debugImplementation(libs.androidx.composeUiTooling)

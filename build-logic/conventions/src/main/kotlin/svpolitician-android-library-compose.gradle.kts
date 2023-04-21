@@ -25,9 +25,13 @@ android {
 
 dependencies {
     implementation(platform(libs.findLibrary("androidx.composeBom").get()))
+    implementation(libs.findLibrary("androidx.composeAnimation").get())
+    implementation(libs.findLibrary("androidx.composeFoundation").get())
     implementation(libs.findLibrary("androidx.composeMaterial3").get())
     implementation(libs.findLibrary("androidx.composeMaterialIconsCore").get())
     implementation(libs.findLibrary("androidx.composeMaterialIconsExtended").get())
+    implementation(libs.findLibrary("androidx.composeRuntime").get())
+    implementation(libs.findLibrary("androidx.composeUi").get())
 
     implementation(libs.findLibrary("androidx.composeUiToolingPreview").get())
     debugImplementation(libs.findLibrary("androidx.composeUiTooling").get())
