@@ -26,7 +26,7 @@ import java.time.Duration
 @Composable
 public fun SettingsScreen(
     state: SettingsUiState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
     Scaffold(
@@ -35,7 +35,7 @@ public fun SettingsScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(text = context.getString(R.string.settings_top_bar_title))
-                }
+                },
             )
         },
         bottomBar = {
@@ -46,30 +46,30 @@ public fun SettingsScreen(
                 text = context.getString(
                     R.string.settings_version,
                     state.versionName,
-                    state.versionCode
+                    state.versionCode,
                 ),
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
-        }
+        },
     ) {
         LazyColumn(
             modifier = Modifier
                 .padding(it)
                 .fillMaxSize(),
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-            verticalArrangement = Arrangement.spacedBy(6.dp)
+            verticalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             item {
                 Column {
                     Text(
                         text = context.getString(R.string.settings_periodic_update_header),
-                        style = MaterialTheme.typography.bodyLarge
+                        style = MaterialTheme.typography.bodyLarge,
                     )
                     Text(
                         text = context.getString(
                             R.string.settings_periodic_update_description,
-                            state.syncInterval.toMinutes().toString() // TODO Format
-                        )
+                            state.syncInterval.toMinutes().toString(), // TODO Format
+                        ),
                     )
                 }
             }
@@ -77,7 +77,7 @@ public fun SettingsScreen(
             item {
                 Text(
                     text = context.getString(R.string.settings_stored_data_header),
-                    style = MaterialTheme.typography.bodyLarge
+                    style = MaterialTheme.typography.bodyLarge,
                 )
                 Button(onClick = { /*TODO*/ }) {
                     Text(text = context.getString(R.string.settings_stored_data_button))
@@ -95,8 +95,8 @@ private fun SettingsScreenPreview() {
             state = SettingsUiState(
                 syncInterval = Duration.ofMinutes(15),
                 versionName = "1.0.0",
-                versionCode = 0
-            )
+                versionCode = 0,
+            ),
         )
     }
 }

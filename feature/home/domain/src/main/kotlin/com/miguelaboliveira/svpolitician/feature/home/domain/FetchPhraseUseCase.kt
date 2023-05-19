@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 public class FetchPhraseUseCase @Inject constructor(
     private val database: SVPoliticianDatabase,
-    private val httpApi: HttpApi
+    private val httpApi: HttpApi,
 ) {
     public suspend operator fun invoke(): Unit = withContext(Dispatchers.IO) {
         val phrase = httpApi.phraseApi.getPhrase()

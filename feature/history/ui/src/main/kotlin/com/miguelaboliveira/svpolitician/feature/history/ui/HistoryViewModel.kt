@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 public class HistoryViewModel @Inject constructor(
-    getPhrasesUseCase: GetPhrasesUseCase
+    getPhrasesUseCase: GetPhrasesUseCase,
 ) : ViewModel() {
 
     public val uiState: StateFlow<HistoryUiState> = getPhrasesUseCase()
@@ -24,14 +24,14 @@ public class HistoryViewModel @Inject constructor(
                     HistoryUiState.Phrase(
                         id = it.id,
                         message = it.message,
-                        date = it.date
+                        date = it.date,
                     )
-                }.toImmutableList()
+                }.toImmutableList(),
             )
         }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
-            initialValue = HistoryUiState()
+            initialValue = HistoryUiState(),
         )
 }

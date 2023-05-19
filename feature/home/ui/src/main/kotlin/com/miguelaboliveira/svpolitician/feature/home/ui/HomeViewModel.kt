@@ -20,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 public class HomeViewModel @Inject constructor(
     getMostRecentPhraseUseCase: GetMostRecentPhraseUseCase,
-    private val fetchPhraseUseCase: FetchPhraseUseCase
+    private val fetchPhraseUseCase: FetchPhraseUseCase,
 ) : ViewModel() {
 
     private val refreshState: MutableStateFlow<Boolean> = MutableStateFlow(false)
@@ -29,7 +29,7 @@ public class HomeViewModel @Inject constructor(
     public val uiState: StateFlow<HomeUiState> = combine(
         errorsState,
         refreshState,
-        getMostRecentPhraseUseCase()
+        getMostRecentPhraseUseCase(),
     ) { errors, refreshing, mostRecentPhrase ->
         HomeUiState(
             loading = false,
@@ -37,17 +37,17 @@ public class HomeViewModel @Inject constructor(
             phrase = mostRecentPhrase?.let {
                 HomeUiState.Phrase(
                     mostRecentPhrase.message,
-                    mostRecentPhrase.date
+                    mostRecentPhrase.date,
                 )
             },
-            errors = errors
+            errors = errors,
         )
     }.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5000),
         initialValue = HomeUiState(
-            loading = true
-        )
+            loading = true,
+        ),
     )
 
     init {
@@ -67,7 +67,7 @@ public class HomeViewModel @Inject constructor(
                             is IOException -> UiError.Type.NO_CONNECTION
                             // TODO leaking information from other layers
                             else -> UiError.Type.UNKNOWN
-                        }
+                        },
                     )
                 }
             }

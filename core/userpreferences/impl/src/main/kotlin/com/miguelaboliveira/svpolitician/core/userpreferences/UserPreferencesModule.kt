@@ -14,6 +14,6 @@ public object UserPreferencesModule {
     @Provides
     @Singleton
     public fun userPreferencesStore(
-        application: Application
+        application: Application,
     ): UserPreferencesStore = UserPreferencesStoreImpl(application)
 }

@@ -1,19 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath(libs.plugin.android)
-        classpath(libs.plugin.androidx.navigationSafeArgs)
-        classpath(libs.plugin.dagger.hilt)
-        classpath(libs.plugin.kotlin)
-        classpath(libs.plugin.kotlin.serialization)
-        classpath(libs.plugin.kotlinter)
-        classpath(libs.plugin.twitter.compose)
-        classpath(libs.plugin.square.sqlDelight)
-    }
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.dagger.hilt) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.kapt) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.kotlinter) apply false
+    alias(libs.plugins.doctor) apply false
+    alias(libs.plugins.square.sqlDelight) apply false
 }

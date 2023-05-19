@@ -16,7 +16,7 @@ import javax.inject.Named
 public class SettingsViewModel @Inject constructor(
     getSyncIntervalUseCase: GetSyncIntervalUseCase,
     @Named("versionName") versionName: String,
-    @Named("versionCode") versionCode: Int
+    @Named("versionCode") versionCode: Int,
 ) : ViewModel() {
 
     public val uiState: StateFlow<SettingsUiState> = getSyncIntervalUseCase()
@@ -24,7 +24,7 @@ public class SettingsViewModel @Inject constructor(
             SettingsUiState(
                 syncInterval = Duration.ofMinutes(it),
                 versionName = versionName,
-                versionCode = versionCode
+                versionCode = versionCode,
             )
         }.stateIn(
             scope = viewModelScope,
@@ -32,7 +32,7 @@ public class SettingsViewModel @Inject constructor(
             initialValue = SettingsUiState(
                 syncInterval = Duration.ZERO,
                 versionName = versionName,
-                versionCode = versionCode
-            )
+                versionCode = versionCode,
+            ),
         )
 }

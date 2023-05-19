@@ -59,7 +59,7 @@ public fun HomeScreen(
     state: HomeUiState,
     onErrorConsumed: (Long) -> Unit,
     onFetchClicked: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val snackBarHostState = remember { SnackbarHostState() }
     ErrorHandler(snackBarHostState, state.errors.firstOrNull(), onErrorConsumed)
@@ -68,39 +68,41 @@ public fun HomeScreen(
         snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text(text = LocalContext.current.getString(R.string.home_top_bar_title)) }
+                title = {
+                    Text(text = LocalContext.current.getString(R.string.home_top_bar_title))
+                },
             )
         },
         bottomBar = {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(4.dp)
+                    .height(4.dp),
             ) {
                 AnimatedVisibility(visible = state.refreshing) {
                     LinearProgressIndicator(
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier.fillMaxSize(),
                     )
                 }
             }
-        }
+        },
     ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it)
+                .padding(it),
         ) {
             when {
                 state.loading -> {
                     Loading(
-                        modifier = Modifier.align(Alignment.Center)
+                        modifier = Modifier.align(Alignment.Center),
                     )
                 }
 
                 state.phrase == null -> {
                     Empty(
                         modifier = Modifier.align(Alignment.Center),
-                        onFetchClicked = onFetchClicked
+                        onFetchClicked = onFetchClicked,
                     )
                 }
 
@@ -113,7 +115,7 @@ public fun HomeScreen(
                         modifier = Modifier.fillMaxSize(),
                         phrase = state.phrase.message,
                         date = formattedDate,
-                        onFetchClicked = onFetchClicked
+                        onFetchClicked = onFetchClicked,
                     )
                 }
             }
@@ -124,20 +126,20 @@ public fun HomeScreen(
 @Composable
 private fun Empty(
     modifier: Modifier = Modifier,
-    onFetchClicked: () -> Unit
+    onFetchClicked: () -> Unit,
 ) {
     Column(
         modifier = modifier.padding(horizontal = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Text(
             text = LocalContext.current.getString(R.string.home_no_phrase),
             style = MaterialTheme.typography.headlineMedium,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
         )
         OutlinedButton(
-            onClick = onFetchClicked
+            onClick = onFetchClicked,
         ) {
             Text(text = LocalContext.current.getString(R.string.home_get_first_button))
         }
@@ -146,10 +148,10 @@ private fun Empty(
 
 @Composable
 private fun Loading(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     CircularProgressIndicator(
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -159,14 +161,14 @@ private fun Phrase(
     phrase: String,
     date: String,
     modifier: Modifier = Modifier,
-    onFetchClicked: () -> Unit
+    onFetchClicked: () -> Unit,
 ) {
     val textStyle = MaterialTheme.typography.displayLarge
     val textColors: List<Color> = listOf(
         MaterialTheme.colorScheme.primary,
         MaterialTheme.colorScheme.secondary,
         MaterialTheme.colorScheme.tertiary,
-        MaterialTheme.colorScheme.error
+        MaterialTheme.colorScheme.error,
     )
 
     val currentFontSizePx = with(LocalDensity.current) { textStyle.fontSize.toPx() }
@@ -176,33 +178,33 @@ private fun Phrase(
     val offset by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = currentFontSizeDoublePx,
-        animationSpec = infiniteRepeatable(tween(2500, easing = LinearEasing))
+        animationSpec = infiniteRepeatable(tween(2500, easing = LinearEasing)),
     )
 
     val brush = Brush.linearGradient(
         colors = textColors,
         start = Offset(offset, offset),
         end = Offset(offset + currentFontSizePx, offset + currentFontSizePx),
-        tileMode = TileMode.Mirror
+        tileMode = TileMode.Mirror,
     )
 
     Column(
         modifier = modifier.padding(horizontal = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Box(
             modifier = Modifier
                 .weight(1F)
                 .verticalScroll(rememberScrollState()),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             AnimatedContent(targetState = phrase) { targetPhrase ->
                 Text(
                     text = targetPhrase,
                     style = MaterialTheme.typography.displayLarge
                         .copy(brush = brush),
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
         }
@@ -211,11 +213,11 @@ private fun Phrase(
             style = MaterialTheme.typography.labelSmall,
             textAlign = TextAlign.Center,
             maxLines = 1,
-            overflow = TextOverflow.Ellipsis
+            overflow = TextOverflow.Ellipsis,
         )
         OutlinedButton(
             border = BorderStroke(2.dp, brush),
-            onClick = onFetchClicked
+            onClick = onFetchClicked,
         ) {
             Text(text = LocalContext.current.getString(R.string.home_get_new_button))
         }
@@ -230,7 +232,7 @@ private fun HomeScreenLoadingPreview() {
         HomeScreen(
             state = HomeUiState(),
             onErrorConsumed = {},
-            onFetchClicked = {}
+            onFetchClicked = {},
         )
     }
 }
@@ -243,10 +245,10 @@ private fun HomeScreenRefreshingPreview() {
             state = HomeUiState(
                 loading = false,
                 refreshing = true,
-                phrase = null
+                phrase = null,
             ),
             onErrorConsumed = {},
-            onFetchClicked = {}
+            onFetchClicked = {},
         )
     }
 }
@@ -260,11 +262,11 @@ private fun HomeScreenPreview() {
                 loading = false,
                 phrase = HomeUiState.Phrase(
                     message = "Some random phrase",
-                    date = Instant.now()
-                )
+                    date = Instant.now(),
+                ),
             ),
             onErrorConsumed = {},
-            onFetchClicked = {}
+            onFetchClicked = {},
         )
     }
 }

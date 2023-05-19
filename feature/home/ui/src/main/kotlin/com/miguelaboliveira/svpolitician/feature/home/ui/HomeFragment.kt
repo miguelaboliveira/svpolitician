@@ -19,13 +19,13 @@ public class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View = svPoliticianComposeView {
         val uiState by viewModel.uiState.collectAsStateWithLifecycle()
         HomeScreen(
             state = uiState,
             onFetchClicked = viewModel::refresh,
-            onErrorConsumed = viewModel::consumeError
+            onErrorConsumed = viewModel::consumeError,
         )
     }
 }

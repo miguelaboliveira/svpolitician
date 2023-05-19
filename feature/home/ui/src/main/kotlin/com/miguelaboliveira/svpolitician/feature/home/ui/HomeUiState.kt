@@ -7,10 +7,10 @@ public data class HomeUiState(
     val loading: Boolean = true,
     val refreshing: Boolean = false,
     val phrase: Phrase? = null,
-    val errors: List<UiError> = emptyList()
+    val errors: List<UiError> = emptyList(),
 ) {
     public data class Phrase(
         val message: String,
-        val date: Instant
+        val date: Instant,
     )
 }

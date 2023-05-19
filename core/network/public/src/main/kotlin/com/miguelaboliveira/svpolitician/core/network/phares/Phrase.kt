@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 public data class Phrase(
-    val message: String
+    val message: String,
 )

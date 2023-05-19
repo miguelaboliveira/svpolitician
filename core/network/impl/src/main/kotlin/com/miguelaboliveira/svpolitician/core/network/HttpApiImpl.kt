@@ -12,21 +12,21 @@ import retrofit2.Retrofit
 import retrofit2.create
 
 public class HttpApiImpl(
-    baseUrl: String
+    baseUrl: String,
 ) : HttpApi {
     override val phraseApi: PhraseApi by lazy { retrofit.create() }
 
     private val retrofit: Retrofit by lazy {
         createRetrofit(
             baseUrl = baseUrl,
-            okHttpClient = createOkHttpClient()
+            okHttpClient = createOkHttpClient(),
         )
     }
 
     @OptIn(ExperimentalSerializationApi::class)
     private fun createRetrofit(
         baseUrl: String,
-        okHttpClient: OkHttpClient
+        okHttpClient: OkHttpClient,
     ) = Retrofit.Builder()
         .baseUrl(baseUrl)
         .callFactory(okHttpClient)
@@ -42,7 +42,7 @@ public class HttpApiImpl(
                     } else {
                         HttpLoggingInterceptor.Level.NONE
                     }
-                }
+                },
             )
         }
         .build()

@@ -41,7 +41,7 @@ import java.time.format.FormatStyle
 @Composable
 public fun HistoryScreen(
     state: HistoryUiState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Scaffold(
         modifier = modifier,
@@ -49,9 +49,9 @@ public fun HistoryScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(text = LocalContext.current.getString(R.string.history_top_bar_title))
-                }
+                },
             )
-        }
+        },
     ) {
         Box(
             modifier = Modifier
@@ -59,26 +59,26 @@ public fun HistoryScreen(
                 .padding(
                     top = it.calculateTopPadding(),
                     start = it.calculateStartPadding(LocalLayoutDirection.current),
-                    end = it.calculateEndPadding(LocalLayoutDirection.current)
-                )
+                    end = it.calculateEndPadding(LocalLayoutDirection.current),
+                ),
         ) {
             when {
                 state.loading -> {
                     Loading(
-                        modifier = Modifier.align(Alignment.Center)
+                        modifier = Modifier.align(Alignment.Center),
                     )
                 }
 
                 state.phrases.isEmpty() -> {
                     Empty(
-                        modifier = Modifier.align(Alignment.Center)
+                        modifier = Modifier.align(Alignment.Center),
                     )
                 }
 
                 else -> {
                     PhrasesList(
                         modifier = Modifier.fillMaxSize(),
-                        phrases = state.phrases
+                        phrases = state.phrases,
                     )
                 }
             }
@@ -88,34 +88,34 @@ public fun HistoryScreen(
 
 @Composable
 private fun Loading(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     CircularProgressIndicator(
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
 @Composable
 private fun Empty(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Text(
         modifier = modifier.padding(horizontal = 16.dp),
         text = LocalContext.current.getString(R.string.history_no_phrase),
         style = MaterialTheme.typography.headlineMedium,
-        textAlign = TextAlign.Center
+        textAlign = TextAlign.Center,
     )
 }
 
 @Composable
 private fun PhrasesList(
     phrases: ImmutableList<HistoryUiState.Phrase>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     LazyColumn(
         modifier = modifier.animateContentSize(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-        verticalArrangement = Arrangement.spacedBy(6.dp)
+        verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         items(phrases, { it.id }) {
             val formattedDate = remember(it.id, it.date) {
@@ -125,7 +125,7 @@ private fun PhrasesList(
             Phrase(
                 modifier = Modifier.fillMaxWidth(),
                 phrase = it.message,
-                date = formattedDate
+                date = formattedDate,
             )
         }
     }
@@ -135,23 +135,23 @@ private fun PhrasesList(
 private fun Phrase(
     phrase: String,
     date: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Card(
-        modifier = modifier
+        modifier = modifier,
     ) {
         Column(
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
         ) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = phrase,
-                style = MaterialTheme.typography.titleSmall
+                style = MaterialTheme.typography.titleSmall,
             )
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = date,
-                style = MaterialTheme.typography.labelSmall
+                style = MaterialTheme.typography.labelSmall,
             )
         }
     }
@@ -171,8 +171,8 @@ private fun HistoryScreenEmptyPreview() {
     SVPoliticianTheme {
         HistoryScreen(
             state = HistoryUiState(
-                loading = false
-            )
+                loading = false,
+            ),
         )
     }
 }
@@ -188,15 +188,15 @@ private fun HistoryScreenPreview() {
                     HistoryUiState.Phrase(
                         id = 0,
                         message = "Some random phrase",
-                        date = Instant.now()
+                        date = Instant.now(),
                     ),
                     HistoryUiState.Phrase(
                         id = 1,
                         message = "Another random phrase",
-                        date = Instant.now()
-                    )
-                )
-            )
+                        date = Instant.now(),
+                    ),
+                ),
+            ),
         )
     }
 }

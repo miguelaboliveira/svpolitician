@@ -19,11 +19,11 @@ public class HistoryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View = svPoliticianComposeView {
         val uiState by viewModel.uiState.collectAsStateWithLifecycle()
         HistoryScreen(
-            state = uiState
+            state = uiState,
         )
     }
 }

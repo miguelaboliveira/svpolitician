@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 public class GetMostRecentPhraseUseCase @Inject constructor(
-    private val database: SVPoliticianDatabase
+    private val database: SVPoliticianDatabase,
 ) {
     public operator fun invoke(): Flow<Phrase?> =
         database.phraseQueries.selectMostRecent().asFlow().mapToOneNotNull()

@@ -8,11 +8,11 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 
 public fun userPreferencesStoreFake(
-    defaultValue: UserPreferences = UserPreferences()
+    defaultValue: UserPreferences = UserPreferences(),
 ): UserPreferencesStore = UserPreferencesStoreFake(defaultValue)
 
 private class UserPreferencesStoreFake(
-    defaultValue: UserPreferences
+    defaultValue: UserPreferences,
 ) : UserPreferencesStore {
 
     private var userPreferences = MutableStateFlow(defaultValue)

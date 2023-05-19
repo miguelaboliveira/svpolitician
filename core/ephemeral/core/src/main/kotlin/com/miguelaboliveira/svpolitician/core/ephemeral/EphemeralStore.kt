@@ -15,13 +15,13 @@ public fun <S> ephemeralStore(
     readSavedState: () -> String?,
     writeSavedState: (String) -> Unit,
     encode: (S) -> String,
-    decode: (String) -> S
+    decode: (String) -> S,
 ): EphemeralStore<S> = EphemeralStoreImpl(
     initialState = initialState,
     readSavedState = readSavedState,
     writeSavedState = writeSavedState,
     encode = encode,
-    decode = decode
+    decode = decode,
 )
 
 private class EphemeralStoreImpl<S>(
@@ -29,7 +29,7 @@ private class EphemeralStoreImpl<S>(
     readSavedState: () -> String?,
     private val writeSavedState: (String) -> Unit,
     private val encode: (S) -> String,
-    decode: (String) -> S
+    decode: (String) -> S,
 ) : EphemeralStore<S> {
     private val _state: MutableStateFlow<S>
 

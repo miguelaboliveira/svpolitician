@@ -4,7 +4,7 @@ import com.miguelaboliveira.svpolitician.core.network.phares.Phrase
 import com.miguelaboliveira.svpolitician.core.network.phares.PhraseApi
 
 public fun httpApiFake(
-    phraseApi: PhraseApi = FakePhraseApi
+    phraseApi: PhraseApi = FakePhraseApi,
 ): HttpApi = object : HttpApi {
     override val phraseApi: PhraseApi = phraseApi
 }

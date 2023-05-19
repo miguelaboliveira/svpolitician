@@ -17,7 +17,7 @@ import androidx.lifecycle.LifecycleOwner
  */
 @Composable
 public fun rememberLifecycleEvent(
-    lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current
+    lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
 ): Lifecycle.Event {
     var state by remember { mutableStateOf(Lifecycle.Event.ON_ANY) }
     DisposableEffect(lifecycleOwner) {

@@ -19,11 +19,11 @@ public class SettingsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View = svPoliticianComposeView {
         val uiState by viewModel.uiState.collectAsStateWithLifecycle()
         SettingsScreen(
-            state = uiState
+            state = uiState,
         )
     }
 }

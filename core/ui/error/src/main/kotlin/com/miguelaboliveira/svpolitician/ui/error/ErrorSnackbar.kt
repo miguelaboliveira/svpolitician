@@ -10,7 +10,7 @@ import com.miguelaboliveira.svpolitician.core.ui.error.R
 public fun ErrorHandler(
     snackBarHostState: SnackbarHostState,
     uiError: UiError?,
-    onErrorConsumed: (Long) -> Unit
+    onErrorConsumed: (Long) -> Unit,
 ) {
     val context = LocalContext.current
     uiError?.let {
@@ -22,7 +22,7 @@ public fun ErrorHandler(
         LaunchedEffect(snackBarHostState, uiError.id) {
             snackBarHostState.showSnackbar(
                 message = message,
-                actionLabel = context.getString(R.string.error_dismiss)
+                actionLabel = context.getString(R.string.error_dismiss),
             )
             onErrorConsumed(uiError.id)
         }

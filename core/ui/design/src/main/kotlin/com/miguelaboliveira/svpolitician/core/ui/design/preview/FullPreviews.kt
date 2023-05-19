@@ -6,7 +6,7 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview(
     name = "Night mode",
     group = "themes",
-    uiMode = Configuration.UI_MODE_NIGHT_YES
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
 @FontScalePreviews
 @DevicePreviews

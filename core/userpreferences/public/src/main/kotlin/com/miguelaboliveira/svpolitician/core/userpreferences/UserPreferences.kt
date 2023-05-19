@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 public data class UserPreferences(
-    val syncIntervalMinutes: Long = 15
+    val syncIntervalMinutes: Long = 15,
 )

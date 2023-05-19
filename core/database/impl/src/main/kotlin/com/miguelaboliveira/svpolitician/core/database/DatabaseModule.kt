@@ -17,12 +17,12 @@ public object DatabaseModule {
     @Provides
     @Singleton
     public fun database(
-        application: Application
+        application: Application,
     ): SVPoliticianDatabase = SVPoliticianDatabase(
         driver = createSqlDriver(application),
         PhraseAdapter = Phrase.Adapter(
-            dateAdapter = InstantColumnAdapter
-        )
+            dateAdapter = InstantColumnAdapter,
+        ),
     )
 }
 
@@ -36,5 +36,5 @@ private fun createSqlDriver(application: Application): SqlDriver = AndroidSqlite
             db.enableWriteAheadLogging()
             db.setForeignKeyConstraintsEnabled(true)
         }
-    }
+    },
 )

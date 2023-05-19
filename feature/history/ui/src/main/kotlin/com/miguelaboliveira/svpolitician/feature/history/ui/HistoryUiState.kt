@@ -6,11 +6,11 @@ import java.time.Instant
 
 public data class HistoryUiState(
     val loading: Boolean = true,
-    val phrases: ImmutableList<Phrase> = persistentListOf()
+    val phrases: ImmutableList<Phrase> = persistentListOf(),
 ) {
     public data class Phrase(
         val id: Long,
         val message: String,
-        val date: Instant
+        val date: Instant,
     )
 }
