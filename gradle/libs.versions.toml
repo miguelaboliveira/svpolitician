@@ -49,7 +49,7 @@ androidx-lifecycleViewmodelSavedstate = { module = "androidx.lifecycle:lifecycle
 androidx-hiltNavigationFragment = { module = "androidx.hilt:hilt-navigation-fragment", version.ref = "androidx-hilt" }
 androidx-navigation = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
 androidx-navigationTesting = { module = "androidx.navigation:navigation-testing", version.ref = "androidx-navigation" }
-androidx-viewPager2 = "androidx.viewpager2:viewpager2:1.1.0-beta01"
+androidx-viewPager2 = "androidx.viewpager2:viewpager2:1.1.0-beta02"
 dagger-hiltAndroid = { module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt" }
 dagger-hiltCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger-hilt" }
 dagger-hiltAndroidTesting = { module = "com.google.dagger:hilt-android-testing", version.ref = "dagger-hilt" }
