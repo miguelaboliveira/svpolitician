@@ -6,6 +6,11 @@ plugins {
 
 val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
+kotlin {
+    explicitApi()
+    jvmToolchain(17)
+}
+
 android {
     buildToolsVersion = libs.findVersion("android.buildTools").get().toString()
     compileSdk = libs.findVersion("android.compileSdk").get().toString().toInt()
@@ -14,22 +19,12 @@ android {
         targetSdk = libs.findVersion("android.targetSdk").get().toString().toInt()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
     kotlinOptions {
         allWarningsAsErrors = true
-        freeCompilerArgs += "-Xexplicit-api=strict" // https://youtrack.jetbrains.com/issue/KT-37652
     }
     lint {
         warningsAsErrors = true
     }
-}
-
-kotlin {
-    explicitApi() // Has no effect. See https://youtrack.jetbrains.com/issue/KT-37652
-    jvmToolchain(11)
 }
 
 dependencies {
@@ -44,4 +39,7 @@ dependencies {
     androidTestImplementation(libs.findLibrary("junit").get())
     androidTestImplementation(libs.findLibrary("kotlin.test").get())
     androidTestImplementation(libs.findLibrary("kotlin.testJunit").get())
+    androidTestImplementation(libs.findLibrary("androidx.testCore").get())
+    androidTestImplementation(libs.findLibrary("androidx.testExtJunit").get())
+    androidTestImplementation(libs.findLibrary("androidx.testEspressoCore").get())
 }

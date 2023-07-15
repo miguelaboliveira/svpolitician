@@ -5,7 +5,7 @@ plugins {
 
 kotlin {
     explicitApi()
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 tasks.compileKotlin {

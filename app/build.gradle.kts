@@ -6,6 +6,11 @@ plugins {
     id(libs.plugins.kotlinter.get().pluginId)
 }
 
+kotlin {
+    explicitApi()
+    jvmToolchain(17)
+}
+
 android {
     namespace = "com.miguelaboliveira.svpolitician"
     buildToolsVersion = libs.versions.android.buildTools.get()
@@ -22,13 +27,8 @@ android {
             useSupportLibrary = true
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
     kotlinOptions {
         allWarningsAsErrors = true
-        freeCompilerArgs += "-Xexplicit-api=strict" // https://youtrack.jetbrains.com/issue/KT-37652
     }
     lint {
         warningsAsErrors = true
@@ -50,16 +50,11 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
     }
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-}
-
-kotlin {
-    explicitApi()
-    jvmToolchain(11)
 }
 
 kapt {
@@ -120,8 +115,16 @@ dependencies {
     implementation(libs.androidx.activityCompose)
     implementation(libs.androidx.viewPager2)
 
+    // Leak
+    debugImplementation(libs.square.leakcanaryAndroid)
+
     testImplementation(libs.junit)
+    testImplementation(libs.kotlin.test)
+    testImplementation(libs.kotlin.testJunit)
     androidTestImplementation(libs.junit)
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation(libs.kotlin.test)
+    androidTestImplementation(libs.kotlin.testJunit)
+    androidTestImplementation(libs.androidx.testCore)
+    androidTestImplementation(libs.androidx.testExtJunit)
+    androidTestImplementation(libs.androidx.testEspressoCore)
 }
