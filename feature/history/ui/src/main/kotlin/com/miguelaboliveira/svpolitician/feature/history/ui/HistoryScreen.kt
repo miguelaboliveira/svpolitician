@@ -119,7 +119,7 @@ private fun PhrasesList(
     ) {
         items(phrases, { it.id }) {
             val formattedDate = remember(it.id, it.date) {
-                DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)
+                DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
                     .format(it.date.atZone(ZoneId.systemDefault()))
             }
             Phrase(

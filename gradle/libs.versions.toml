@@ -19,7 +19,7 @@ plugin-doctor = "0.8.1"
 square-okhttp = "4.11.0"
 square-retrofit2 = "2.9.0"
 square-retrofit2-converter-serialization = "1.0.0"
-square-sqlDelight = "1.5.5"
+cash-sqlDelight = "2.0.0"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
@@ -71,9 +71,9 @@ square-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "square-
 square-okhttpLoggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "square-okhttp" }
 square-retrofit2 = { module = "com.squareup.retrofit2:retrofit", version.ref = "square-retrofit2" }
 square-retrofit2ConverterSerialization = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "square-retrofit2-converter-serialization" }
-square-sqlDelightAndroidDriver = { module = "com.squareup.sqldelight:android-driver", version.ref = "square-sqlDelight" }
-square-sqlDelightCoroutinesExt = { module = "com.squareup.sqldelight:coroutines-extensions", version.ref = "square-sqlDelight" }
-square-sqlDelightSqliteDriver = { module = "com.squareup.sqldelight:sqlite-driver", version.ref = "square-sqlDelight" }
+cash-sqlDelightAndroidDriver = { module = "app.cash.sqldelight:android-driver", version.ref = "cash-sqlDelight" }
+cash-sqlDelightCoroutinesExt = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "cash-sqlDelight" }
+cash-sqlDelightSqliteDriver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "cash-sqlDelight" }
 
 # Gradle plugins
 plugin-android = { module = "com.android.tools.build:gradle", version.ref = "plugin-android" }
@@ -82,7 +82,7 @@ plugin-dagger-hilt = { module = "com.google.dagger:hilt-android-gradle-plugin", 
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 plugin-kotlinter = { module = "org.jmailen.gradle:kotlinter-gradle", version.ref = "plugin-kotlinter" }
-plugin-square-sqlDelight = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "square-sqlDelight" }
+plugin-square-sqlDelight = { module = "app.cash.sqldelight:gradle-plugin", version.ref = "cash-sqlDelight" }
 plugin-twitter-compose = "com.twitter.compose.rules:ktlint:0.0.26"
 
 [bundles]
@@ -99,4 +99,4 @@ kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "plugin-kotlinter" }
 doctor = { id = "com.osacky.doctor", version.ref = "plugin-doctor" }
-square-sqlDelight = { id = "com.squareup.sqldelight", version.ref = "square-sqlDelight" }
+cash-sqlDelight = { id = "app.cash.sqldelight", version.ref = "cash-sqlDelight" }

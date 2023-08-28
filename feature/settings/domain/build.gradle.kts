@@ -3,6 +3,7 @@ plugins {
 }
 
 dependencies {
+    implementation(projects.core.database.public)
     implementation(projects.core.userpreferences.public)
     implementation(libs.javax.inject)
 }

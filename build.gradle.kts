@@ -9,5 +9,5 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlinter) apply false
     alias(libs.plugins.doctor) apply false
-    alias(libs.plugins.square.sqlDelight) apply false
+    alias(libs.plugins.cash.sqlDelight) apply false
 }

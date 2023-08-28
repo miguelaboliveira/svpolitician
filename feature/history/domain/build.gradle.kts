@@ -5,5 +5,5 @@ plugins {
 dependencies {
     api(projects.core.database.public)
     implementation(libs.javax.inject)
-    implementation(libs.square.sqlDelightCoroutinesExt)
+    implementation(libs.cash.sqlDelightCoroutinesExt)
 }

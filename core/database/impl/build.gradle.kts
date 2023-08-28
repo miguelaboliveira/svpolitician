@@ -8,5 +8,5 @@ android {
 
 dependencies {
     api(projects.core.database.public)
-    implementation(libs.square.sqlDelightAndroidDriver)
+    implementation(libs.cash.sqlDelightAndroidDriver)
 }

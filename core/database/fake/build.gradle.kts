@@ -4,5 +4,5 @@ plugins {
 
 dependencies {
     api(projects.core.database.public)
-    implementation(libs.square.sqlDelightSqliteDriver)
+    implementation(libs.cash.sqlDelightSqliteDriver)
 }

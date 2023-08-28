@@ -6,5 +6,5 @@ dependencies {
     api(projects.core.database.public)
     implementation(projects.core.network.public)
     implementation(libs.javax.inject)
-    implementation(libs.square.sqlDelightCoroutinesExt)
+    implementation(libs.cash.sqlDelightCoroutinesExt)
 }

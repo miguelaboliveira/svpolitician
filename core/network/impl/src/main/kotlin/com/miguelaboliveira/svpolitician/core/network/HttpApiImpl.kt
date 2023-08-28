@@ -3,7 +3,6 @@ package com.miguelaboliveira.svpolitician.core.network
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.miguelaboliveira.svpolitician.core.network.impl.BuildConfig
 import com.miguelaboliveira.svpolitician.core.network.phares.PhraseApi
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -23,7 +22,6 @@ public class HttpApiImpl(
         )
     }
 
-    @OptIn(ExperimentalSerializationApi::class)
     private fun createRetrofit(
         baseUrl: String,
         okHttpClient: OkHttpClient,

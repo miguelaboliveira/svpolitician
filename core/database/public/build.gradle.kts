@@ -1,12 +1,14 @@
 plugins {
     id("svpolitician-jvm-library")
-    id(libs.plugins.square.sqlDelight.get().pluginId)
+    id(libs.plugins.cash.sqlDelight.get().pluginId)
 }
 
 sqldelight {
-    database("SVPoliticianDatabase") {
-        packageName = "com.miguelaboliveira.svpolitician.core.database"
-        schemaOutputDirectory = file("src/main/sqldelight/schema")
+    databases {
+        create("SVPoliticianDatabase") {
+            packageName.set("com.miguelaboliveira.svpolitician.core.database")
+            schemaOutputDirectory.set(file("src/main/sqldelight/schema"))
+        }
     }
 }
 

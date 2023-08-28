@@ -24,6 +24,7 @@ public class SettingsFragment : Fragment() {
         val uiState by viewModel.uiState.collectAsStateWithLifecycle()
         SettingsScreen(
             state = uiState,
+            onClearStorageClicked = viewModel::clearStorage,
         )
     }
 }

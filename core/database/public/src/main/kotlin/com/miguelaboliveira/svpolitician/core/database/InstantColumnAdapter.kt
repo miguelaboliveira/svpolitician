@@ -1,6 +1,6 @@
 package com.miguelaboliveira.svpolitician.core.database
 
-import com.squareup.sqldelight.ColumnAdapter
+import app.cash.sqldelight.ColumnAdapter
 import java.time.Instant
 
 public object InstantColumnAdapter : ColumnAdapter<Instant, Long> {
