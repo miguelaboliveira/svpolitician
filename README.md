@@ -6,7 +6,7 @@
 SVPolitician is a multi-module Android project that aims to provide a user-friendly interface for
 retrieving and displaying information from [Techy API](https://techy-api.vercel.app/). The project
 is built with modern Android development tools and libraries, including Jetpack Compose, Jetpack
-Navigatio, Hilt, SQLDelight, Retrofit, and other third-party libraries.
+Navigation, Hilt, SQLDelight, Retrofit, and other third-party libraries.
 
 ## Table of Contents
 
