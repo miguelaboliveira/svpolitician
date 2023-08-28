@@ -32,6 +32,7 @@ android {
     }
     lint {
         warningsAsErrors = true
+        baseline = file("lint-baseline.xml")
     }
     buildTypes {
         release {
@@ -124,7 +125,6 @@ dependencies {
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.kotlin.test)
     androidTestImplementation(libs.kotlin.testJunit)
-    androidTestImplementation(libs.androidx.testCore)
     androidTestImplementation(libs.androidx.testExtJunit)
     androidTestImplementation(libs.androidx.testEspressoCore)
 }

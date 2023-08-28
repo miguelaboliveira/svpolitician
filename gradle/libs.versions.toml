@@ -5,7 +5,7 @@ android-minSdk = "26"
 android-targetSdk = "34"
 androidx-activity = "1.7.2"
 androidx-fragment = "1.6.1"
-androidx-compose-compiler = "1.5.2"
+androidx-compose-compiler = "1.5.3-dev-k1.9.10-593b4c95fce"
 androidx-hilt = "1.0.0"
 androidx-lifecycle = "2.6.1"
 androidx-navigation = "2.7.1"
@@ -49,7 +49,6 @@ androidx-lifecycleViewmodelSavedstate = { module = "androidx.lifecycle:lifecycle
 androidx-hiltNavigationFragment = { module = "androidx.hilt:hilt-navigation-fragment", version.ref = "androidx-hilt" }
 androidx-navigation = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
 androidx-navigationTesting = { module = "androidx.navigation:navigation-testing", version.ref = "androidx-navigation" }
-androidx-testCore = "androidx.test:core-ktx:1.5.0.0"
 androidx-testExtJunit = "androidx.test.ext:junit-ktx:1.1.5"
 androidx-testEspressoCore = "androidx.test.espresso:espresso-core:3.5.1"
 androidx-viewPager2 = "androidx.viewpager2:viewpager2:1.1.0-beta02"

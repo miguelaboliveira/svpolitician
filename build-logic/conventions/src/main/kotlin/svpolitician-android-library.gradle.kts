@@ -39,7 +39,6 @@ dependencies {
     androidTestImplementation(libs.findLibrary("junit").get())
     androidTestImplementation(libs.findLibrary("kotlin.test").get())
     androidTestImplementation(libs.findLibrary("kotlin.testJunit").get())
-    androidTestImplementation(libs.findLibrary("androidx.testCore").get())
     androidTestImplementation(libs.findLibrary("androidx.testExtJunit").get())
     androidTestImplementation(libs.findLibrary("androidx.testEspressoCore").get())
 }
