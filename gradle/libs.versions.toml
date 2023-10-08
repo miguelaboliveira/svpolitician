@@ -55,7 +55,7 @@ androidx-viewPager2 = "androidx.viewpager2:viewpager2:1.1.0-beta02"
 dagger-hiltAndroid = { module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt" }
 dagger-hiltCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger-hilt" }
 dagger-hiltAndroidTesting = { module = "com.google.dagger:hilt-android-testing", version.ref = "dagger-hilt" }
-google-material = "com.google.android.material:material:1.9.0"
+google-material = "com.google.android.material:material:1.10.0"
 javax-inject = "javax.inject:javax.inject:1"
 junit = "junit:junit:4.13.2"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
