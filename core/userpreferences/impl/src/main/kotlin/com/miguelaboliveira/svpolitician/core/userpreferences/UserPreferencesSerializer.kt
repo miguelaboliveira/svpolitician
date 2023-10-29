@@ -12,7 +12,6 @@ import java.io.OutputStream
 
 @OptIn(ExperimentalSerializationApi::class)
 internal object UserPreferencesSerializer : Serializer<UserPreferences> {
-
     override val defaultValue: UserPreferences = UserPreferences()
 
     override suspend fun readFrom(input: InputStream): UserPreferences {
@@ -23,7 +22,10 @@ internal object UserPreferencesSerializer : Serializer<UserPreferences> {
         }
     }
 
-    override suspend fun writeTo(t: UserPreferences, output: OutputStream) {
+    override suspend fun writeTo(
+        t: UserPreferences,
+        output: OutputStream,
+    ) {
         Json.encodeToStream(t, output)
     }
 }

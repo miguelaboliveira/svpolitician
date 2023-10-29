@@ -10,10 +10,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 public object UserPreferencesModule {
-
     @Provides
     @Singleton
-    public fun userPreferencesStore(
-        application: Application,
-    ): UserPreferencesStore = UserPreferencesStoreImpl(application)
+    public fun userPreferencesStore(application: Application): UserPreferencesStore =
+        UserPreferencesStoreImpl(application)
 }

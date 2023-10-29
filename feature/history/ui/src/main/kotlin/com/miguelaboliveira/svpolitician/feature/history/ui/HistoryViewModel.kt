@@ -12,26 +12,29 @@ import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
 @HiltViewModel
-public class HistoryViewModel @Inject constructor(
-    getPhrasesUseCase: GetPhrasesUseCase,
-) : ViewModel() {
-
-    public val uiState: StateFlow<HistoryUiState> = getPhrasesUseCase()
-        .map { phrases ->
-            HistoryUiState(
-                loading = false,
-                phrases = phrases.map {
-                    HistoryUiState.Phrase(
-                        id = it.id,
-                        message = it.message,
-                        date = it.date,
+public class HistoryViewModel
+    @Inject
+    constructor(
+        getPhrasesUseCase: GetPhrasesUseCase,
+    ) : ViewModel() {
+        public val uiState: StateFlow<HistoryUiState> =
+            getPhrasesUseCase()
+                .map { phrases ->
+                    HistoryUiState(
+                        loading = false,
+                        phrases =
+                            phrases.map {
+                                HistoryUiState.Phrase(
+                                    id = it.id,
+                                    message = it.message,
+                                    date = it.date,
+                                )
+                            }.toImmutableList(),
                     )
-                }.toImmutableList(),
-            )
-        }
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000),
-            initialValue = HistoryUiState(),
-        )
-}
+                }
+                .stateIn(
+                    scope = viewModelScope,
+                    started = SharingStarted.WhileSubscribed(5000),
+                    initialValue = HistoryUiState(),
+                )
+    }

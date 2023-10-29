@@ -8,6 +8,6 @@ import androidx.compose.ui.tooling.preview.Preview
     group = "themes",
     uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
-@FontScalePreviews
-@DevicePreviews
-public annotation class FullPreviews
+@PreviewFontScales
+@PreviewDevices
+public annotation class PreviewFull

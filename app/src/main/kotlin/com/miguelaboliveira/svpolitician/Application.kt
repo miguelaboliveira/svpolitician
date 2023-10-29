@@ -6,7 +6,6 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 public class Application : Application() {
-
     override fun onCreate() {
         super.onCreate()
         DynamicColors.applyToActivitiesIfAvailable(this)

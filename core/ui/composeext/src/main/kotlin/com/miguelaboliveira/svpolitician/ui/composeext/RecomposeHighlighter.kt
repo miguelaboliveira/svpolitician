@@ -25,11 +25,12 @@ import kotlin.math.min
  * size and interpolates from red to green as more recompositions occur before a timeout.
  */
 @Stable
-public fun Modifier.recomposeHighlighter(): Modifier = if (BuildConfig.DEBUG) {
-    this.then(recomposeModifier)
-} else {
-    this
-}
+public fun Modifier.recomposeHighlighter(): Modifier =
+    if (BuildConfig.DEBUG) {
+        this.then(recomposeModifier)
+    } else {
+        this
+    }
 
 // Use a single instance + @Stable to ensure that recompositions can enable skipping optimizations
 // Modifier.composed will still remember unique data per call site.

@@ -9,7 +9,6 @@ import javax.inject.Named
 @Module
 @InstallIn(SingletonComponent::class)
 public object ApplicationModule {
-
     @Provides
     @Named("baseUrl")
     public fun baseUrl(): String = "https://techy-api.vercel.app"

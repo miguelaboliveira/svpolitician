@@ -13,17 +13,17 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 public class HistoryFragment : Fragment() {
-
     private val viewModel by viewModels<HistoryViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View = svPoliticianComposeView {
-        val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-        HistoryScreen(
-            state = uiState,
-        )
-    }
+    ): View =
+        svPoliticianComposeView {
+            val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+            HistoryScreen(
+                state = uiState,
+            )
+        }
 }

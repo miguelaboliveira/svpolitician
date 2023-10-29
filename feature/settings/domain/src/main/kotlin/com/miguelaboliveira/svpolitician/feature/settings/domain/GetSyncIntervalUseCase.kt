@@ -4,9 +4,11 @@ import com.miguelaboliveira.svpolitician.core.userpreferences.UserPreferencesSto
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-public class GetSyncIntervalUseCase @Inject constructor(
-    private val userPreferencesStore: UserPreferencesStore,
-) {
-    public operator fun invoke(): Flow<Long> =
-        userPreferencesStore.asFlow { it.syncIntervalMinutes }
-}
+public class GetSyncIntervalUseCase
+    @Inject
+    constructor(
+        private val userPreferencesStore: UserPreferencesStore,
+    ) {
+        public operator fun invoke(): Flow<Long> =
+            userPreferencesStore.asFlow { it.syncIntervalMinutes }
+    }

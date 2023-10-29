@@ -8,9 +8,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-public class GetPhrasesUseCase @Inject constructor(
-    private val database: SVPoliticianDatabase,
-) {
-    public operator fun invoke(): Flow<List<Phrase>> =
-        database.phraseQueries.selectAll().asFlow().mapToList(Dispatchers.IO)
-}
+public class GetPhrasesUseCase
+    @Inject
+    constructor(
+        private val database: SVPoliticianDatabase,
+    ) {
+        public operator fun invoke(): Flow<List<Phrase>> =
+            database.phraseQueries.selectAll().asFlow().mapToList(Dispatchers.IO)
+    }

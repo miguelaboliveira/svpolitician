@@ -31,17 +31,19 @@ public class HttpApiImpl(
         .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
         .build()
 
-    private fun createOkHttpClient() = OkHttpClient.Builder()
-        .apply {
-            addNetworkInterceptor(
-                HttpLoggingInterceptor().apply {
-                    level = if (BuildConfig.DEBUG) {
-                        HttpLoggingInterceptor.Level.BODY
-                    } else {
-                        HttpLoggingInterceptor.Level.NONE
-                    }
-                },
-            )
-        }
-        .build()
+    private fun createOkHttpClient() =
+        OkHttpClient.Builder()
+            .apply {
+                addNetworkInterceptor(
+                    HttpLoggingInterceptor().apply {
+                        level =
+                            if (BuildConfig.DEBUG) {
+                                HttpLoggingInterceptor.Level.BODY
+                            } else {
+                                HttpLoggingInterceptor.Level.NONE
+                            }
+                    },
+                )
+            }
+            .build()
 }

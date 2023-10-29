@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.updateAndGet
 
 public interface EphemeralStore<S> {
     public val state: StateFlow<S>
+
     public fun update(transform: (state: S) -> S)
 }
 
@@ -16,13 +17,14 @@ public fun <S> ephemeralStore(
     writeSavedState: (String) -> Unit,
     encode: (S) -> String,
     decode: (String) -> S,
-): EphemeralStore<S> = EphemeralStoreImpl(
-    initialState = initialState,
-    readSavedState = readSavedState,
-    writeSavedState = writeSavedState,
-    encode = encode,
-    decode = decode,
-)
+): EphemeralStore<S> =
+    EphemeralStoreImpl(
+        initialState = initialState,
+        readSavedState = readSavedState,
+        writeSavedState = writeSavedState,
+        encode = encode,
+        decode = decode,
+    )
 
 private class EphemeralStoreImpl<S>(
     initialState: S,
@@ -35,11 +37,12 @@ private class EphemeralStoreImpl<S>(
 
     init {
         val savedState = readSavedState()
-        _state = if (savedState == null) {
-            MutableStateFlow(initialState)
-        } else {
-            MutableStateFlow(decode(savedState))
-        }
+        _state =
+            if (savedState == null) {
+                MutableStateFlow(initialState)
+            } else {
+                MutableStateFlow(decode(savedState))
+            }
     }
 
     override val state: StateFlow<S> = _state.asStateFlow()

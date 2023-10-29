@@ -19,7 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.miguelaboliveira.svpolitician.core.ui.design.SVPoliticianTheme
-import com.miguelaboliveira.svpolitician.core.ui.design.preview.FullPreviews
+import com.miguelaboliveira.svpolitician.core.ui.design.preview.PreviewFull
 import java.time.Duration
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,23 +41,26 @@ public fun SettingsScreen(
         },
         bottomBar = {
             Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 8.dp),
-                text = context.getString(
-                    R.string.settings_version,
-                    state.versionName,
-                    state.versionCode,
-                ),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
+                text =
+                    context.getString(
+                        R.string.settings_version,
+                        state.versionName,
+                        state.versionCode,
+                    ),
                 textAlign = TextAlign.Center,
             )
         },
     ) {
         Column(
-            modifier = Modifier
-                .padding(it)
-                .padding(horizontal = 16.dp, vertical = 8.dp)
-                .fillMaxSize(),
+            modifier =
+                Modifier
+                    .padding(it)
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
+                    .fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Column {
@@ -66,10 +69,12 @@ public fun SettingsScreen(
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Text(
-                    text = context.getString(
-                        R.string.settings_periodic_update_description,
-                        state.syncInterval.toMinutes().toString(), // TODO Format
-                    ),
+                    text =
+                        context.getString(
+                            R.string.settings_periodic_update_description,
+                            // TODO Format interval
+                            state.syncInterval.toMinutes().toString(),
+                        ),
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
@@ -89,16 +94,17 @@ public fun SettingsScreen(
     }
 }
 
-@FullPreviews
+@PreviewFull
 @Composable
 private fun SettingsScreenPreview() {
     SVPoliticianTheme {
         SettingsScreen(
-            state = SettingsUiState(
-                syncInterval = Duration.ofMinutes(15),
-                versionName = "1.0.0",
-                versionCode = 0,
-            ),
+            state =
+                SettingsUiState(
+                    syncInterval = Duration.ofMinutes(15),
+                    versionName = "1.0.0",
+                    versionCode = 0,
+                ),
             onClearStorageClicked = {},
         )
     }

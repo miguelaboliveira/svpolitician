@@ -13,19 +13,19 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 public class HomeFragment : Fragment() {
-
     private val viewModel by viewModels<HomeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View = svPoliticianComposeView {
-        val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-        HomeScreen(
-            state = uiState,
-            onFetchClicked = viewModel::refresh,
-            onErrorConsumed = viewModel::consumeError,
-        )
-    }
+    ): View =
+        svPoliticianComposeView {
+            val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+            HomeScreen(
+                state = uiState,
+                onFetchClicked = viewModel::refresh,
+                onErrorConsumed = viewModel::consumeError,
+            )
+        }
 }

@@ -29,7 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.miguelaboliveira.svpolitician.core.ui.design.SVPoliticianTheme
-import com.miguelaboliveira.svpolitician.core.ui.design.preview.FullPreviews
+import com.miguelaboliveira.svpolitician.core.ui.design.preview.PreviewFull
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import java.time.Instant
@@ -54,13 +54,14 @@ public fun HistoryScreen(
         },
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(
-                    top = it.calculateTopPadding(),
-                    start = it.calculateStartPadding(LocalLayoutDirection.current),
-                    end = it.calculateEndPadding(LocalLayoutDirection.current),
-                ),
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(
+                        top = it.calculateTopPadding(),
+                        start = it.calculateStartPadding(LocalLayoutDirection.current),
+                        end = it.calculateEndPadding(LocalLayoutDirection.current),
+                    ),
         ) {
             when {
                 state.loading -> {
@@ -87,18 +88,14 @@ public fun HistoryScreen(
 }
 
 @Composable
-private fun Loading(
-    modifier: Modifier = Modifier,
-) {
+private fun Loading(modifier: Modifier = Modifier) {
     CircularProgressIndicator(
         modifier = modifier,
     )
 }
 
 @Composable
-private fun Empty(
-    modifier: Modifier = Modifier,
-) {
+private fun Empty(modifier: Modifier = Modifier) {
     Text(
         modifier = modifier.padding(horizontal = 16.dp),
         text = LocalContext.current.getString(R.string.history_no_phrase),
@@ -118,10 +115,11 @@ private fun PhrasesList(
         verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         items(phrases, { it.id }) {
-            val formattedDate = remember(it.id, it.date) {
-                DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
-                    .format(it.date.atZone(ZoneId.systemDefault()))
-            }
+            val formattedDate =
+                remember(it.id, it.date) {
+                    DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
+                        .format(it.date.atZone(ZoneId.systemDefault()))
+                }
             Phrase(
                 modifier = Modifier.fillMaxWidth(),
                 phrase = it.message,
@@ -170,33 +168,36 @@ private fun HistoryScreenLoadingPreview() {
 private fun HistoryScreenEmptyPreview() {
     SVPoliticianTheme {
         HistoryScreen(
-            state = HistoryUiState(
-                loading = false,
-            ),
+            state =
+                HistoryUiState(
+                    loading = false,
+                ),
         )
     }
 }
 
-@FullPreviews
+@PreviewFull
 @Composable
 private fun HistoryScreenPreview() {
     SVPoliticianTheme {
         HistoryScreen(
-            state = HistoryUiState(
-                loading = false,
-                phrases = persistentListOf(
-                    HistoryUiState.Phrase(
-                        id = 0,
-                        message = "Some random phrase",
-                        date = Instant.now(),
-                    ),
-                    HistoryUiState.Phrase(
-                        id = 1,
-                        message = "Another random phrase",
-                        date = Instant.now(),
-                    ),
+            state =
+                HistoryUiState(
+                    loading = false,
+                    phrases =
+                        persistentListOf(
+                            HistoryUiState.Phrase(
+                                id = 0,
+                                message = "Some random phrase",
+                                date = Instant.now(),
+                            ),
+                            HistoryUiState.Phrase(
+                                id = 1,
+                                message = "Another random phrase",
+                                date = Instant.now(),
+                            ),
+                        ),
                 ),
-            ),
         )
     }
 }

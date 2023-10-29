@@ -44,7 +44,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.miguelaboliveira.svpolitician.core.ui.design.SVPoliticianTheme
-import com.miguelaboliveira.svpolitician.core.ui.design.preview.FullPreviews
+import com.miguelaboliveira.svpolitician.core.ui.design.preview.PreviewFull
 import com.miguelaboliveira.svpolitician.ui.error.ErrorHandler
 import java.time.Instant
 import java.time.ZoneId
@@ -73,9 +73,10 @@ public fun HomeScreen(
         },
         bottomBar = {
             Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(4.dp),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .height(4.dp),
             ) {
                 AnimatedVisibility(visible = state.refreshing) {
                     LinearProgressIndicator(
@@ -86,9 +87,10 @@ public fun HomeScreen(
         },
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(it),
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(it),
         ) {
             when {
                 state.loading -> {
@@ -105,10 +107,11 @@ public fun HomeScreen(
                 }
 
                 else -> {
-                    val formattedDate = remember(state.phrase.date) {
-                        DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
-                            .format(state.phrase.date.atZone(ZoneId.systemDefault()))
-                    }
+                    val formattedDate =
+                        remember(state.phrase.date) {
+                            DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
+                                .format(state.phrase.date.atZone(ZoneId.systemDefault()))
+                        }
                     Phrase(
                         modifier = Modifier.fillMaxSize(),
                         phrase = state.phrase.message,
@@ -145,9 +148,7 @@ private fun Empty(
 }
 
 @Composable
-private fun Loading(
-    modifier: Modifier = Modifier,
-) {
+private fun Loading(modifier: Modifier = Modifier) {
     CircularProgressIndicator(
         modifier = modifier,
     )
@@ -161,12 +162,13 @@ private fun Phrase(
     onFetchClicked: () -> Unit,
 ) {
     val textStyle = MaterialTheme.typography.displayLarge
-    val textColors: List<Color> = listOf(
-        MaterialTheme.colorScheme.primary,
-        MaterialTheme.colorScheme.secondary,
-        MaterialTheme.colorScheme.tertiary,
-        MaterialTheme.colorScheme.error,
-    )
+    val textColors: List<Color> =
+        listOf(
+            MaterialTheme.colorScheme.primary,
+            MaterialTheme.colorScheme.secondary,
+            MaterialTheme.colorScheme.tertiary,
+            MaterialTheme.colorScheme.error,
+        )
 
     val currentFontSizePx = with(LocalDensity.current) { textStyle.fontSize.toPx() }
     val currentFontSizeDoublePx = currentFontSizePx * 2
@@ -178,12 +180,13 @@ private fun Phrase(
         animationSpec = infiniteRepeatable(tween(2500, easing = LinearEasing)),
     )
 
-    val brush = Brush.linearGradient(
-        colors = textColors,
-        start = Offset(offset, offset),
-        end = Offset(offset + currentFontSizePx, offset + currentFontSizePx),
-        tileMode = TileMode.Mirror,
-    )
+    val brush =
+        Brush.linearGradient(
+            colors = textColors,
+            start = Offset(offset, offset),
+            end = Offset(offset + currentFontSizePx, offset + currentFontSizePx),
+            tileMode = TileMode.Mirror,
+        )
 
     Column(
         modifier = modifier.padding(horizontal = 16.dp),
@@ -191,16 +194,18 @@ private fun Phrase(
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Box(
-            modifier = Modifier
-                .weight(1F)
-                .verticalScroll(rememberScrollState()),
+            modifier =
+                Modifier
+                    .weight(1F)
+                    .verticalScroll(rememberScrollState()),
             contentAlignment = Alignment.Center,
         ) {
             AnimatedContent(targetState = phrase) { targetPhrase ->
                 Text(
                     text = targetPhrase,
-                    style = MaterialTheme.typography.displayLarge
-                        .copy(brush = brush),
+                    style =
+                        MaterialTheme.typography.displayLarge
+                            .copy(brush = brush),
                     textAlign = TextAlign.Center,
                 )
             }
@@ -234,34 +239,37 @@ private fun HomeScreenLoadingPreview() {
     }
 }
 
-@FullPreviews
+@PreviewFull
 @Composable
 private fun HomeScreenRefreshingPreview() {
     SVPoliticianTheme {
         HomeScreen(
-            state = HomeUiState(
-                loading = false,
-                refreshing = true,
-                phrase = null,
-            ),
+            state =
+                HomeUiState(
+                    loading = false,
+                    refreshing = true,
+                    phrase = null,
+                ),
             onErrorConsumed = {},
             onFetchClicked = {},
         )
     }
 }
 
-@FullPreviews
+@PreviewFull
 @Composable
 private fun HomeScreenPreview() {
     SVPoliticianTheme {
         HomeScreen(
-            state = HomeUiState(
-                loading = false,
-                phrase = HomeUiState.Phrase(
-                    message = "Some random phrase",
-                    date = Instant.now(),
+            state =
+                HomeUiState(
+                    loading = false,
+                    phrase =
+                        HomeUiState.Phrase(
+                            message = "Some random phrase",
+                            date = Instant.now(),
+                        ),
                 ),
-            ),
             onErrorConsumed = {},
             onFetchClicked = {},
         )

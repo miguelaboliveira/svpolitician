@@ -7,12 +7,15 @@ import kotlinx.coroutines.withContext
 import java.time.Instant
 import javax.inject.Inject
 
-public class FetchPhraseUseCase @Inject constructor(
-    private val database: SVPoliticianDatabase,
-    private val httpApi: HttpApi,
-) {
-    public suspend operator fun invoke(): Unit = withContext(Dispatchers.IO) {
-        val phrase = httpApi.phraseApi.getPhrase()
-        database.phraseQueries.insert(phrase.message, Instant.now())
+public class FetchPhraseUseCase
+    @Inject
+    constructor(
+        private val database: SVPoliticianDatabase,
+        private val httpApi: HttpApi,
+    ) {
+        public suspend operator fun invoke(): Unit =
+            withContext(Dispatchers.IO) {
+                val phrase = httpApi.phraseApi.getPhrase()
+                database.phraseQueries.insert(phrase.message, Instant.now())
+            }
     }
-}

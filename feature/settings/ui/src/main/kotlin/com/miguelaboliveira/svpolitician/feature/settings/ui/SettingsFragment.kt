@@ -13,18 +13,18 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 public class SettingsFragment : Fragment() {
-
     private val viewModel by viewModels<SettingsViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View = svPoliticianComposeView {
-        val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-        SettingsScreen(
-            state = uiState,
-            onClearStorageClicked = viewModel::clearStorage,
-        )
-    }
+    ): View =
+        svPoliticianComposeView {
+            val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+            SettingsScreen(
+                state = uiState,
+                onClearStorageClicked = viewModel::clearStorage,
+            )
+        }
 }

@@ -14,7 +14,6 @@ public fun userPreferencesStoreFake(
 private class UserPreferencesStoreFake(
     defaultValue: UserPreferences,
 ) : UserPreferencesStore {
-
     private var userPreferences = MutableStateFlow(defaultValue)
 
     override suspend fun get(): UserPreferences = userPreferences.value

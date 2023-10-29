@@ -17,4 +17,4 @@ import androidx.compose.ui.tooling.preview.Preview
     group = "devices",
     device = "spec:shape=Normal,width=1280,height=800,unit=dp,dpi=420",
 )
-public annotation class DevicePreviews
+public annotation class PreviewDevices

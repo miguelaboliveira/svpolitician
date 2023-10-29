@@ -20,15 +20,18 @@ public class MainActivity : AppCompatActivity() {
         binding.viewPager.apply {
             isUserInputEnabled = false
             offscreenPageLimit = 2
-            adapter = object : FragmentStateAdapter(this@MainActivity) {
-                override fun getItemCount(): Int = 3
-                override fun createFragment(position: Int): Fragment = when (position) {
-                    0 -> HomeFragment()
-                    1 -> HistoryFragment()
-                    2 -> SettingsFragment()
-                    else -> error("Invalid position: $position")
+            adapter =
+                object : FragmentStateAdapter(this@MainActivity) {
+                    override fun getItemCount(): Int = 3
+
+                    override fun createFragment(position: Int): Fragment =
+                        when (position) {
+                            0 -> HomeFragment()
+                            1 -> HistoryFragment()
+                            2 -> SettingsFragment()
+                            else -> error("Invalid position: $position")
+                        }
                 }
-            }
         }
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {

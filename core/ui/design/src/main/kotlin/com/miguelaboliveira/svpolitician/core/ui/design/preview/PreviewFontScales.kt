@@ -12,4 +12,4 @@ import androidx.compose.ui.tooling.preview.Preview
     group = "font scales",
     fontScale = 1.5f,
 )
-public annotation class FontScalePreviews
+public annotation class PreviewFontScales

@@ -15,33 +15,36 @@ import javax.inject.Inject
 import javax.inject.Named
 
 @HiltViewModel
-public class SettingsViewModel @Inject constructor(
-    getSyncIntervalUseCase: GetSyncIntervalUseCase,
-    private val clearStorageUseCase: ClearStorageUseCase,
-    @Named("versionName") versionName: String,
-    @Named("versionCode") versionCode: Int,
-) : ViewModel() {
+public class SettingsViewModel
+    @Inject
+    constructor(
+        getSyncIntervalUseCase: GetSyncIntervalUseCase,
+        private val clearStorageUseCase: ClearStorageUseCase,
+        @Named("versionName") versionName: String,
+        @Named("versionCode") versionCode: Int,
+    ) : ViewModel() {
+        public val uiState: StateFlow<SettingsUiState> =
+            getSyncIntervalUseCase()
+                .map {
+                    SettingsUiState(
+                        syncInterval = Duration.ofMinutes(it),
+                        versionName = versionName,
+                        versionCode = versionCode,
+                    )
+                }.stateIn(
+                    scope = viewModelScope,
+                    started = SharingStarted.WhileSubscribed(5000),
+                    initialValue =
+                        SettingsUiState(
+                            syncInterval = Duration.ZERO,
+                            versionName = versionName,
+                            versionCode = versionCode,
+                        ),
+                )
 
-    public val uiState: StateFlow<SettingsUiState> = getSyncIntervalUseCase()
-        .map {
-            SettingsUiState(
-                syncInterval = Duration.ofMinutes(it),
-                versionName = versionName,
-                versionCode = versionCode,
-            )
-        }.stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000),
-            initialValue = SettingsUiState(
-                syncInterval = Duration.ZERO,
-                versionName = versionName,
-                versionCode = versionCode,
-            ),
-        )
-
-    public fun clearStorage() {
-        viewModelScope.launch {
-            clearStorageUseCase()
+        public fun clearStorage() {
+            viewModelScope.launch {
+                clearStorageUseCase()
+            }
         }
     }
-}
