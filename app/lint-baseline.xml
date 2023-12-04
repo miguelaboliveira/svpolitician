@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.2.0-beta01" type="baseline" client="gradle" dependencies="false" name="AGP (8.2.0-beta01)" variant="all" version="8.2.0-beta01">
+<issues format="6" by="lint 8.2.0" type="baseline" client="gradle" dependencies="false" name="AGP (8.2.0)" variant="all" version="8.2.0">
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose.compiler:compiler than 1.5.5-dev-k1.9.21-163bb051fe5 is available: 1.5.5"
+        errorLine1="androidx-compose-compiler = &quot;1.5.5-dev-k1.9.21-163bb051fe5&quot;"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="$HOME/Developer/Personal/svpolitician/gradle/libs.versions.toml"
+            line="8"
+            column="29"/>
+    </issue>
 
     <issue
         id="VectorPath"
