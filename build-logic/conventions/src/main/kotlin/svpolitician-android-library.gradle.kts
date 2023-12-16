@@ -24,6 +24,7 @@ android {
     }
     lint {
         warningsAsErrors = true
+        disable += listOf("GradleDependency")
     }
 }
 
