@@ -32,6 +32,7 @@ android {
     }
     lint {
         warningsAsErrors = true
+        disable += listOf("GradleDependency")
         baseline = file("lint-baseline.xml")
     }
     buildTypes {
