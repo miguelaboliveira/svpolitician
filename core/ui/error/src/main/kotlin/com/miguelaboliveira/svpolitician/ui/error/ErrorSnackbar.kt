@@ -3,6 +3,8 @@ package com.miguelaboliveira.svpolitician.ui.error
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.platform.LocalContext
 import com.miguelaboliveira.svpolitician.core.ui.error.R
 
@@ -13,6 +15,7 @@ public fun ErrorHandler(
     onErrorConsumed: (Long) -> Unit,
 ) {
     val context = LocalContext.current
+    val latestOnErrorConsumed by rememberUpdatedState(onErrorConsumed)
     uiError?.let {
         val message =
             when (uiError.type) {
@@ -20,6 +23,7 @@ public fun ErrorHandler(
                     context.getString(
                         R.string.error_no_internet_connection,
                     )
+
                 UiError.Type.HTTP -> context.getString(R.string.error_http)
                 else -> context.getString(R.string.error_unknown)
             }
@@ -28,7 +32,7 @@ public fun ErrorHandler(
                 message = message,
                 actionLabel = context.getString(R.string.error_dismiss),
             )
-            onErrorConsumed(uiError.id)
+            latestOnErrorConsumed(uiError.id)
         }
     }
 }
