@@ -14,6 +14,6 @@ plugins {
 
 buildscript {
     dependencies {
-        classpath(libs.kotlinter.compose.rules)
+        // classpath(libs.kotlinter.compose.rules)
     }
 }
