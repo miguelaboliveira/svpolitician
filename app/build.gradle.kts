@@ -1,6 +1,7 @@
 plugins {
     id(libs.plugins.android.application.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
+    id(libs.plugins.kotlin.compose.get().pluginId)
     id(libs.plugins.kotlin.kapt.get().pluginId)
     id(libs.plugins.dagger.hilt.get().pluginId)
     id(libs.plugins.kotlinter.get().pluginId)
@@ -8,7 +9,7 @@ plugins {
 
 kotlin {
     explicitApi()
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 android {
@@ -29,6 +30,7 @@ android {
     }
     kotlinOptions {
         allWarningsAsErrors = true
+        freeCompilerArgs += listOf("-Xsuppress-version-warnings")
     }
     lint {
         warningsAsErrors = true
@@ -48,9 +50,6 @@ android {
         compose = true
         viewBinding = true
         buildConfig = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
     }
     packaging {
         resources {
