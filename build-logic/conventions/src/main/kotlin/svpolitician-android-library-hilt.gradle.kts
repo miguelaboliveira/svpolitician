@@ -10,6 +10,12 @@ kapt {
     correctErrorTypes = true // Required by hilt
 }
 
+android {
+    kotlinOptions {
+        freeCompilerArgs += listOf("-Xsuppress-version-warnings")
+    }
+}
+
 hilt {
     enableAggregatingTask = true
 }

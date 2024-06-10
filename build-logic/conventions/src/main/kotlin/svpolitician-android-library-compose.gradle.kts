@@ -1,5 +1,6 @@
 plugins {
     id("svpolitician-android-library")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
@@ -9,8 +10,6 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion =
-            libs.findVersion("androidx.compose.compiler").get().toString()
         useLiveLiterals = true
     }
     kotlinOptions {

@@ -8,7 +8,7 @@ val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().name
 
 kotlin {
     explicitApi()
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 android {
