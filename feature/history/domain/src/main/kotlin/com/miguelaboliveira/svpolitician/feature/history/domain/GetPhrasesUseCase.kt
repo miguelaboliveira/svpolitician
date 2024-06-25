@@ -14,5 +14,8 @@ public class GetPhrasesUseCase
         private val database: SVPoliticianDatabase,
     ) {
         public operator fun invoke(): Flow<List<Phrase>> =
-            database.phraseQueries.selectAll().asFlow().mapToList(Dispatchers.IO)
+            database.phraseQueries
+                .selectAll()
+                .asFlow()
+                .mapToList(Dispatchers.IO)
     }

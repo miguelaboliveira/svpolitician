@@ -25,14 +25,16 @@ public class HttpApiImpl(
     private fun createRetrofit(
         baseUrl: String,
         okHttpClient: OkHttpClient,
-    ) = Retrofit.Builder()
+    ) = Retrofit
+        .Builder()
         .baseUrl(baseUrl)
         .callFactory(okHttpClient)
         .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
         .build()
 
     private fun createOkHttpClient() =
-        OkHttpClient.Builder()
+        OkHttpClient
+            .Builder()
             .apply {
                 addNetworkInterceptor(
                     HttpLoggingInterceptor().apply {
@@ -44,6 +46,5 @@ public class HttpApiImpl(
                             }
                     },
                 )
-            }
-            .build()
+            }.build()
 }
