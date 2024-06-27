@@ -48,7 +48,7 @@ androidx-hiltNavigationFragment = { module = "androidx.hilt:hilt-navigation-frag
 androidx-navigation = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
 androidx-navigationTesting = { module = "androidx.navigation:navigation-testing", version.ref = "androidx-navigation" }
 androidx-testExtJunit = "androidx.test.ext:junit-ktx:1.2.1"
-androidx-testEspressoCore = "androidx.test.espresso:espresso-core:3.5.1"
+androidx-testEspressoCore = "androidx.test.espresso:espresso-core:3.6.1"
 androidx-viewPager2 = "androidx.viewpager2:viewpager2:1.1.0"
 dagger-hiltAndroid = { module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt" }
 dagger-hiltCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger-hilt" }
