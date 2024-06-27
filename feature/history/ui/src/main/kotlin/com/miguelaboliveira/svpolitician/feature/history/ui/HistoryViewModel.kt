@@ -23,16 +23,16 @@ public class HistoryViewModel
                     HistoryUiState(
                         loading = false,
                         phrases =
-                            phrases.map {
-                                HistoryUiState.Phrase(
-                                    id = it.id,
-                                    message = it.message,
-                                    date = it.date,
-                                )
-                            }.toImmutableList(),
+                            phrases
+                                .map {
+                                    HistoryUiState.Phrase(
+                                        id = it.id,
+                                        message = it.message,
+                                        date = it.date,
+                                    )
+                                }.toImmutableList(),
                     )
-                }
-                .stateIn(
+                }.stateIn(
                     scope = viewModelScope,
                     started = SharingStarted.WhileSubscribed(5000),
                     initialValue = HistoryUiState(),

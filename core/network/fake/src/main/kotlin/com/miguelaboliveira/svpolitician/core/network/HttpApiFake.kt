@@ -9,7 +9,5 @@ public fun httpApiFake(phraseApi: PhraseApi = FakePhraseApi): HttpApi =
     }
 
 private object FakePhraseApi : PhraseApi {
-    override suspend fun getPhrase(): Phrase {
-        return Phrase("Fake phrase")
-    }
+    override suspend fun getPhrase(): Phrase = Phrase("Fake phrase")
 }

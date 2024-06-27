@@ -14,5 +14,8 @@ public class GetMostRecentPhraseUseCase
         private val database: SVPoliticianDatabase,
     ) {
         public operator fun invoke(): Flow<Phrase?> =
-            database.phraseQueries.selectMostRecent().asFlow().mapToOneOrNull(Dispatchers.IO)
+            database.phraseQueries
+                .selectMostRecent()
+                .asFlow()
+                .mapToOneOrNull(Dispatchers.IO)
     }

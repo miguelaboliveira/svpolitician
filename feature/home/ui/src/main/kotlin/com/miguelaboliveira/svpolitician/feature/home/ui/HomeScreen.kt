@@ -109,7 +109,8 @@ public fun HomeScreen(
                 else -> {
                     val formattedDate =
                         remember(state.phrase.date) {
-                            DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
+                            DateTimeFormatter
+                                .ofLocalizedDateTime(FormatStyle.SHORT)
                                 .format(state.phrase.date.atZone(ZoneId.systemDefault()))
                         }
                     Phrase(
