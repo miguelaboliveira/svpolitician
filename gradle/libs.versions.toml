@@ -24,7 +24,7 @@ cash-sqlDelight = "2.0.2"
 androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 androidx-appcompat = "androidx.appcompat:appcompat:1.7.0"
-androidx-composeBom = "androidx.compose:compose-bom:2024.08.00"
+androidx-composeBom = "androidx.compose:compose-bom:2024.09.00"
 androidx-composeAnimation = { module = "androidx.compose.animation:animation" }
 androidx-composeFoundation = { module = "androidx.compose.foundation:foundation" }
 androidx-composeMaterial3 = { module = "androidx.compose.material3:material3" }
