@@ -21,7 +21,7 @@ dependencyResolutionManagement {
 
 // Gradle dependencies --scan
 plugins {
-    id("com.gradle.develocity") version "3.18"
+    id("com.gradle.develocity") version "3.18.1"
 }
 
 develocity {
