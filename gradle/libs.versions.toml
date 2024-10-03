@@ -64,7 +64,7 @@ kotlinx-coroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-te
 kotlinx-collectionsImmutable = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.8"
 kotlinx-serializationCore = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 kotlinx-serializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
-kotlinter-compose-rules = "io.nlopez.compose.rules:ktlint:0.4.12"
+kotlinter-compose-rules = "io.nlopez.compose.rules:ktlint:0.4.15"
 square-leakcanaryAndroid = "com.squareup.leakcanary:leakcanary-android:2.14"
 square-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "square-okhttp" }
 square-okhttpLoggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "square-okhttp" }
