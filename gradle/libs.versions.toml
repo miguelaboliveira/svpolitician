@@ -36,7 +36,7 @@ androidx-composeUiTestJunit4 = { module = "androidx.compose.ui:ui-test-junit4" }
 androidx-composeUiTestManifest = { module = "androidx.compose.ui:ui-test-manifest" }
 androidx-composeUiTooling = { module = "androidx.compose.ui:ui-tooling" }
 androidx-composeUiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
-androidx-core = "androidx.core:core-ktx:1.13.1"
+androidx-core = "androidx.core:core-ktx:1.15.0"
 androidx-datastore = "androidx.datastore:datastore-preferences-core:1.1.1"
 androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment" }
 androidx-lifecycleCompiler = { module = "androidx.lifecycle:lifecycle-compiler", version.ref = "androidx-lifecycle" }
