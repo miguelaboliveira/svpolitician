@@ -15,7 +15,7 @@ kotlinx-serialization = "1.8.1"
 plugin-android = "8.11.1"
 plugin-kotlinter = "5.1.1"
 plugin-doctor = "0.11.0"
-square-okhttp = "4.12.0"
+square-okhttp = "5.1.0"
 square-retrofit2 = "3.0.0"
 cash-sqlDelight = "2.0.2"
 
