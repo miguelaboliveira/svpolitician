@@ -1,10 +1,34 @@
 plugins {
-    id(libs.plugins.android.application.get().pluginId)
-    id(libs.plugins.kotlin.android.get().pluginId)
-    id(libs.plugins.kotlin.compose.get().pluginId)
-    id(libs.plugins.kotlin.kapt.get().pluginId)
-    id(libs.plugins.dagger.hilt.get().pluginId)
-    id(libs.plugins.kotlinter.get().pluginId)
+    id(
+        libs.plugins.android.application
+            .get()
+            .pluginId,
+    )
+    id(
+        libs.plugins.kotlin.android
+            .get()
+            .pluginId,
+    )
+    id(
+        libs.plugins.kotlin.compose
+            .get()
+            .pluginId,
+    )
+    id(
+        libs.plugins.kotlin.kapt
+            .get()
+            .pluginId,
+    )
+    id(
+        libs.plugins.dagger.hilt
+            .get()
+            .pluginId,
+    )
+    id(
+        libs.plugins.kotlinter
+            .get()
+            .pluginId,
+    )
 }
 
 kotlin {
@@ -14,12 +38,23 @@ kotlin {
 
 android {
     namespace = "com.miguelaboliveira.svpolitician"
-    buildToolsVersion = libs.versions.android.buildTools.get()
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    buildToolsVersion =
+        libs.versions.android.buildTools
+            .get()
+    compileSdk =
+        libs.versions.android.compileSdk
+            .get()
+            .toInt()
     defaultConfig {
         applicationId = "com.miguelaboliveira.svpolitician"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
+        minSdk =
+            libs.versions.android.minSdk
+                .get()
+                .toInt()
+        targetSdk =
+            libs.versions.android.targetSdk
+                .get()
+                .toInt()
         versionCode = 1
         versionName = "1.0"
 
@@ -42,7 +77,7 @@ android {
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }

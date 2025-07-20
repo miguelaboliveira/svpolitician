@@ -1,6 +1,5 @@
 package com.miguelaboliveira.svpolitician.core.network
 
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.miguelaboliveira.svpolitician.core.network.impl.BuildConfig
 import com.miguelaboliveira.svpolitician.core.network.phares.PhraseApi
 import kotlinx.serialization.json.Json
@@ -8,6 +7,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
 
 public class HttpApiImpl(
@@ -29,8 +29,9 @@ public class HttpApiImpl(
         .Builder()
         .baseUrl(baseUrl)
         .callFactory(okHttpClient)
-        .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
-        .build()
+        .addConverterFactory(
+            Json.asConverterFactory("application/json; charset=UTF8".toMediaType()),
+        ).build()
 
     private fun createOkHttpClient() =
         OkHttpClient

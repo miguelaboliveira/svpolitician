@@ -13,10 +13,25 @@ kotlin {
 
 android {
     buildToolsVersion = libs.findVersion("android.buildTools").get().toString()
-    compileSdk = libs.findVersion("android.compileSdk").get().toString().toInt()
+    compileSdk =
+        libs
+            .findVersion("android.compileSdk")
+            .get()
+            .toString()
+            .toInt()
     defaultConfig {
-        minSdk = libs.findVersion("android.minSdk").get().toString().toInt()
-        targetSdk = libs.findVersion("android.targetSdk").get().toString().toInt()
+        minSdk =
+            libs
+                .findVersion("android.minSdk")
+                .get()
+                .toString()
+                .toInt()
+        targetSdk =
+            libs
+                .findVersion("android.targetSdk")
+                .get()
+                .toString()
+                .toInt()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     kotlinOptions {
