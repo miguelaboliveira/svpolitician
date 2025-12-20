@@ -9,6 +9,10 @@ val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().name
 kotlin {
     explicitApi()
     jvmToolchain(21)
+
+    compilerOptions {
+        allWarningsAsErrors = true
+    }
 }
 
 android {
@@ -33,9 +37,6 @@ android {
                 .toString()
                 .toInt()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    kotlinOptions {
-        allWarningsAsErrors = true
     }
     lint {
         warningsAsErrors = true

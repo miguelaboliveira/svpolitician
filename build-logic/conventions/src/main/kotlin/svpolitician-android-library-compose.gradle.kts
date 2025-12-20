@@ -5,18 +5,22 @@ plugins {
 
 val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-android {
-    buildFeatures {
-        compose = true
-    }
-    kotlinOptions {
-        freeCompilerArgs +=
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll(
             listOf(
                 "-P",
                 "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=${project.buildDir.absolutePath}/compose_metrics",
                 "-P",
                 "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${project.buildDir.absolutePath}/compose_reports",
-            )
+            ),
+        )
+    }
+}
+
+android {
+    buildFeatures {
+        compose = true
     }
 }
 

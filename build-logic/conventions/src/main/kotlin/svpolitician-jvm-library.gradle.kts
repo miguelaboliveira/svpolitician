@@ -6,11 +6,9 @@ plugins {
 kotlin {
     explicitApi()
     jvmToolchain(21)
-}
 
-tasks.compileKotlin {
     compilerOptions {
-        allWarningsAsErrors.set(true)
+        allWarningsAsErrors = true
     }
 }
 

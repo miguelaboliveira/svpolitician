@@ -6,12 +6,6 @@ plugins {
 
 val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-android {
-    kotlinOptions {
-        freeCompilerArgs += listOf("-Xsuppress-version-warnings")
-    }
-}
-
 hilt {
     enableAggregatingTask = true
 }
