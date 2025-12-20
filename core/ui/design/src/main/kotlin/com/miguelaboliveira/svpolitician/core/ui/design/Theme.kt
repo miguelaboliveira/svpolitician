@@ -89,21 +89,14 @@ public fun SVPoliticianTheme(
                 if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
             }
 
-            darkTheme -> darkColorScheme
-            else -> lightColorScheme
-        }
+            darkTheme -> {
+                darkColorScheme
+            }
 
-    /*val view = LocalView.current
-    if (!view.isInEditMode) {
-        SideEffect {
-            val activity = view.context as? Activity
-            activity?.let {
-                activity.window.statusBarColor = colorScheme.primary.toArgb()
-                WindowCompat.getInsetsController(activity.window, view)
-                    .isAppearanceLightStatusBars = darkTheme
+            else -> {
+                lightColorScheme
             }
         }
-    }*/
 
     MaterialTheme(
         colorScheme = colorScheme,

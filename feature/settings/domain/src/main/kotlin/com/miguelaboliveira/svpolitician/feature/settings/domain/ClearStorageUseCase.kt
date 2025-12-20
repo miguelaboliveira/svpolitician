@@ -8,5 +8,7 @@ public class ClearStorageUseCase
     constructor(
         private val database: SVPoliticianDatabase,
     ) {
-        public operator fun invoke(): Unit = database.phraseQueries.deleteAll()
+        public operator fun invoke() {
+            database.phraseQueries.deleteAll()
+        }
     }

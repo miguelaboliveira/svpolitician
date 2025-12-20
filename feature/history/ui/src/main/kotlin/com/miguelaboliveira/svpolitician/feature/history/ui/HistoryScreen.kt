@@ -23,8 +23,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -48,7 +48,7 @@ public fun HistoryScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(text = LocalContext.current.getString(R.string.history_top_bar_title))
+                    Text(text = stringResource(R.string.history_top_bar_title))
                 },
             )
         },
@@ -98,7 +98,7 @@ private fun Loading(modifier: Modifier = Modifier) {
 private fun Empty(modifier: Modifier = Modifier) {
     Text(
         modifier = modifier.padding(horizontal = 16.dp),
-        text = LocalContext.current.getString(R.string.history_no_phrase),
+        text = stringResource(R.string.history_no_phrase),
         style = MaterialTheme.typography.headlineMedium,
         textAlign = TextAlign.Center,
     )

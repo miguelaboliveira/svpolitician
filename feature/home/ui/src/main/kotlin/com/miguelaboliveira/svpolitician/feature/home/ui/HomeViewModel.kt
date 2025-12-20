@@ -69,9 +69,14 @@ public class HomeViewModel
                             UiError(
                                 UUID.randomUUID().mostSignificantBits,
                                 when (throwable) {
-                                    is IOException -> UiError.Type.NO_CONNECTION
+                                    is IOException -> {
+                                        UiError.Type.NO_CONNECTION
+                                    }
+
                                     // TODO leaking information from other layers
-                                    else -> UiError.Type.UNKNOWN
+                                    else -> {
+                                        UiError.Type.UNKNOWN
+                                    }
                                 },
                             )
                     }

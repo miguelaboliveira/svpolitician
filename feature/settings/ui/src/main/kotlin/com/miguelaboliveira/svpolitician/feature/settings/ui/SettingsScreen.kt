@@ -15,7 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.miguelaboliveira.svpolitician.core.ui.design.SVPoliticianTheme
@@ -29,13 +29,12 @@ public fun SettingsScreen(
     onClearStorageClicked: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val context = LocalContext.current
     Scaffold(
         modifier = modifier,
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(text = context.getString(R.string.settings_top_bar_title))
+                    Text(text = stringResource(R.string.settings_top_bar_title))
                 },
             )
         },
@@ -46,7 +45,7 @@ public fun SettingsScreen(
                         .fillMaxWidth()
                         .padding(vertical = 8.dp),
                 text =
-                    context.getString(
+                    stringResource(
                         R.string.settings_version,
                         state.versionName,
                         state.versionCode,
@@ -65,12 +64,12 @@ public fun SettingsScreen(
         ) {
             Column {
                 Text(
-                    text = context.getString(R.string.settings_periodic_update_header),
+                    text = stringResource(R.string.settings_periodic_update_header),
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Text(
                     text =
-                        context.getString(
+                        stringResource(
                             R.string.settings_periodic_update_description,
                             // TODO Format interval
                             state.syncInterval.toMinutes().toString(),
@@ -83,11 +82,11 @@ public fun SettingsScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
-                    text = context.getString(R.string.settings_stored_data_header),
+                    text = stringResource(R.string.settings_stored_data_header),
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Button(onClick = onClearStorageClicked) {
-                    Text(text = context.getString(R.string.settings_stored_data_button))
+                    Text(text = stringResource(R.string.settings_stored_data_button))
                 }
             }
         }

@@ -1,6 +1,13 @@
+import org.jmailen.gradle.kotlinter.tasks.FormatTask
+import org.jmailen.gradle.kotlinter.tasks.LintTask
+
 plugins {
     id("svpolitician-jvm-library")
-    id(libs.plugins.cash.sqlDelight.get().pluginId)
+    id(
+        libs.plugins.cash.sqlDelight
+            .get()
+            .pluginId,
+    )
 }
 
 sqldelight {
@@ -12,8 +19,10 @@ sqldelight {
     }
 }
 
-tasks.lintKotlinMain {
-    exclude(
-        "/com/miguelaboliveira/svpolitician/core/database/**"
-    )
+tasks.withType<LintTask> {
+    exclude { it.file.path.contains("/generated") }
+}
+
+tasks.withType<FormatTask> {
+    exclude { it.file.path.contains("/generated") }
 }

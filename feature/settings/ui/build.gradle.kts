@@ -11,7 +11,7 @@ dependencies {
     implementation(projects.feature.settings.domain)
     implementation(projects.core.ui.design)
     implementation(projects.core.ui.fragmentext)
-    kapt(libs.androidx.lifecycleCompiler)
+    ksp(libs.androidx.lifecycleCompiler)
     implementation(libs.androidx.lifecycleRuntimeCompose)
     testImplementation(libs.androidx.lifecycleRuntimeTesting)
 }

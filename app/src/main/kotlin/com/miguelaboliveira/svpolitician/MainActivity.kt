@@ -50,7 +50,9 @@ public class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                else -> error("Invalid itemId: ${it.itemId}")
+                else -> {
+                    error("Invalid itemId: ${it.itemId}")
+                }
             }
         }
 

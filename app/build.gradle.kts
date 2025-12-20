@@ -15,7 +15,7 @@ plugins {
             .pluginId,
     )
     id(
-        libs.plugins.kotlin.kapt
+        libs.plugins.google.ksp
             .get()
             .pluginId,
     )
@@ -34,6 +34,10 @@ plugins {
 kotlin {
     explicitApi()
     jvmToolchain(21)
+
+    compilerOptions {
+        allWarningsAsErrors = true
+    }
 }
 
 android {
@@ -63,10 +67,6 @@ android {
             useSupportLibrary = true
         }
     }
-    kotlinOptions {
-        allWarningsAsErrors = true
-        freeCompilerArgs += listOf("-Xsuppress-version-warnings")
-    }
     lint {
         warningsAsErrors = true
         disable += listOf("GradleDependency")
@@ -91,10 +91,6 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-}
-
-kapt {
-    correctErrorTypes = true // Required by hilt
 }
 
 hilt {
@@ -125,13 +121,13 @@ dependencies {
 
     // Hilt
     implementation(libs.dagger.hiltAndroid)
-    kapt(libs.dagger.hiltCompiler)
+    ksp(libs.dagger.hiltCompiler)
 
     androidTestImplementation(libs.dagger.hiltAndroidTesting)
-    kaptAndroidTest(libs.dagger.hiltCompiler)
+    kspAndroidTest(libs.dagger.hiltCompiler)
 
     testImplementation(libs.dagger.hiltAndroidTesting)
-    kaptTest(libs.dagger.hiltCompiler)
+    kspTest(libs.dagger.hiltCompiler)
 
     // Database
     implementation(projects.core.database.impl)

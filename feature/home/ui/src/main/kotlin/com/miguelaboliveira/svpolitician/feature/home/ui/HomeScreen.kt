@@ -37,8 +37,8 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TileMode
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -67,7 +67,7 @@ public fun HomeScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(text = LocalContext.current.getString(R.string.home_top_bar_title))
+                    Text(text = stringResource(R.string.home_top_bar_title))
                 },
             )
         },
@@ -136,14 +136,14 @@ private fun Empty(
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Text(
-            text = LocalContext.current.getString(R.string.home_no_phrase),
+            text = stringResource(R.string.home_no_phrase),
             style = MaterialTheme.typography.headlineMedium,
             textAlign = TextAlign.Center,
         )
         OutlinedButton(
             onClick = onFetchClicked,
         ) {
-            Text(text = LocalContext.current.getString(R.string.home_get_first_button))
+            Text(text = stringResource(R.string.home_get_first_button))
         }
     }
 }
@@ -222,7 +222,7 @@ private fun Phrase(
             border = BorderStroke(2.dp, brush),
             onClick = onFetchClicked,
         ) {
-            Text(text = LocalContext.current.getString(R.string.home_get_new_button))
+            Text(text = stringResource(R.string.home_get_new_button))
         }
         Spacer(modifier = Modifier.height(8.dp))
     }
