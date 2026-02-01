@@ -1,6 +1,5 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
     id("org.jmailen.kotlinter")
 }
 
@@ -27,12 +26,6 @@ android {
         minSdk =
             libs
                 .findVersion("android.minSdk")
-                .get()
-                .toString()
-                .toInt()
-        targetSdk =
-            libs
-                .findVersion("android.targetSdk")
                 .get()
                 .toString()
                 .toInt()
