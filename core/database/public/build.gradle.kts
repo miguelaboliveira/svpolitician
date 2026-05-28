@@ -19,6 +19,10 @@ sqldelight {
     }
 }
 
+dependencies {
+    api(libs.cash.sqlDelightRuntime)
+}
+
 tasks.withType<LintTask> {
     exclude { it.file.path.contains("/generated") }
 }

@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 import java.io.IOException
 import java.util.UUID
 import javax.inject.Inject
+import kotlin.coroutines.cancellation.CancellationException
 
 @HiltViewModel
 public class HomeViewModel
@@ -64,6 +65,8 @@ public class HomeViewModel
                 runCatching {
                     fetchPhraseUseCase()
                 }.onFailure { throwable ->
+                    if (throwable is CancellationException) throw throwable
+
                     errorsState.update {
                         it +
                             UiError(
