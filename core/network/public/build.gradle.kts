@@ -1,6 +1,6 @@
 plugins {
     id("svpolitician-jvm-library")
-    id(libs.plugins.kotlin.serialization.get().pluginId)
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 dependencies {

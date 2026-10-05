@@ -1,29 +1,9 @@
 plugins {
-    id(
-        libs.plugins.android.application
-            .get()
-            .pluginId,
-    )
-    id(
-        libs.plugins.kotlin.compose
-            .get()
-            .pluginId,
-    )
-    id(
-        libs.plugins.google.ksp
-            .get()
-            .pluginId,
-    )
-    id(
-        libs.plugins.dagger.hilt
-            .get()
-            .pluginId,
-    )
-    id(
-        libs.plugins.kotlinter
-            .get()
-            .pluginId,
-    )
+    id("com.android.application")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
+    id("org.jmailen.kotlinter")
 }
 
 kotlin {
