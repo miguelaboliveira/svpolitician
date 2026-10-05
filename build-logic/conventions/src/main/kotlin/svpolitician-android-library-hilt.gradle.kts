@@ -1,4 +1,4 @@
-import com.miguelaboliveira.svpolitician.buildlogic.libs
+import com.miguelaboliveira.svpolitician.buildlogic.configureHilt
 
 plugins {
     id("svpolitician-android-library")
@@ -6,17 +6,4 @@ plugins {
     id("com.google.dagger.hilt.android")
 }
 
-hilt {
-    enableAggregatingTask = true
-}
-
-dependencies {
-    implementation(libs.findLibrary("dagger.hiltAndroid").get())
-    ksp(libs.findLibrary("dagger.hiltCompiler").get())
-
-    testImplementation(libs.findLibrary("dagger.hiltAndroidTesting").get())
-    kspTest(libs.findLibrary("dagger.hiltCompiler").get())
-
-    androidTestImplementation(libs.findLibrary("dagger.hiltAndroidTesting").get())
-    kspAndroidTest(libs.findLibrary("dagger.hiltCompiler").get())
-}
+configureHilt()
