@@ -1,18 +1,12 @@
+import com.miguelaboliveira.svpolitician.buildlogic.configureKotlin
+import com.miguelaboliveira.svpolitician.buildlogic.libs
+
 plugins {
     id("com.android.library")
     id("org.jmailen.kotlinter")
 }
 
-val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
-
-kotlin {
-    explicitApi()
-    jvmToolchain(21)
-
-    compilerOptions {
-        allWarningsAsErrors = true
-    }
-}
+configureKotlin()
 
 android {
     buildToolsVersion = libs.findVersion("android.buildTools").get().toString()

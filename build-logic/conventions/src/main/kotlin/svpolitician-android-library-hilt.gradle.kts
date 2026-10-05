@@ -1,10 +1,10 @@
+import com.miguelaboliveira.svpolitician.buildlogic.libs
+
 plugins {
     id("svpolitician-android-library")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
-
-val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 hilt {
     enableAggregatingTask = true

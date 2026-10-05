@@ -1,9 +1,9 @@
+import com.miguelaboliveira.svpolitician.buildlogic.libs
+
 plugins {
     id("svpolitician-android-library")
     id("org.jetbrains.kotlin.plugin.compose")
 }
-
-val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 composeCompiler {
     metricsDestination = layout.buildDirectory.dir("compose_metrics")
