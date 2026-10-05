@@ -71,3 +71,10 @@ lint/tmp/
 
 # Secrets
 /secrets.profile
+
+# Claude Code
+# Personal settings and notes; shared config (.claude/settings.json, CLAUDE.md) stays tracked
+.claude/settings.local.json
+CLAUDE.local.md
+# Git worktrees created by Claude Code sessions
+.claude/worktrees/
