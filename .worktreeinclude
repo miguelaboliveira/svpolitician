@@ -1,0 +1,3 @@
+# Gitignored files copied into worktrees created by Claude Code
+# Local configuration file (sdk path, etc)
+local.properties
