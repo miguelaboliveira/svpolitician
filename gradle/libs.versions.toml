@@ -15,7 +15,6 @@ kotlinx-coroutines = "1.11.0"
 kotlinx-serialization = "1.11.0"
 plugin-android = "9.4.1"
 plugin-kotlinter = "5.7.0"
-plugin-doctor = "0.12.1"
 square-okhttp = "5.5.0"
 square-retrofit2 = "3.0.0"
 cash-sqlDelight = "2.4.0"
@@ -42,7 +41,6 @@ androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "
 androidx-lifecycleCompiler = { module = "androidx.lifecycle:lifecycle-compiler", version.ref = "androidx-lifecycle" }
 androidx-lifecycleRuntimeCompose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 androidx-lifecycleRuntimeTesting = { module = "androidx.lifecycle:lifecycle-runtime-testing", version.ref = "androidx-lifecycle" }
-androidx-lifecycleViewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycleViewmodelSavedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "androidx-lifecycle" }
 androidx-hiltNavigationFragment = { module = "androidx.hilt:hilt-navigation-fragment", version.ref = "androidx-hilt" }
 androidx-navigation = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
@@ -64,7 +62,6 @@ kotlinx-coroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-te
 kotlinx-collectionsImmutable = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.5.2"
 kotlinx-serializationCore = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 kotlinx-serializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
-kotlinter-compose-rules = "io.nlopez.compose.rules:ktlint:0.6.6"
 square-leakcanaryAndroid = "com.squareup.leakcanary:leakcanary-android:2.14"
 square-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "square-okhttp" }
 square-okhttpLoggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "square-okhttp" }
@@ -99,5 +96,4 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "plugin-kotlinter" }
-doctor = { id = "com.osacky.doctor", version.ref = "plugin-doctor" }
 cash-sqlDelight = { id = "app.cash.sqldelight", version.ref = "cash-sqlDelight" }

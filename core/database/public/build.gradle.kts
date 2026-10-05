@@ -3,11 +3,7 @@ import org.jmailen.gradle.kotlinter.tasks.LintTask
 
 plugins {
     id("svpolitician-jvm-library")
-    id(
-        libs.plugins.cash.sqlDelight
-            .get()
-            .pluginId,
-    )
+    id("app.cash.sqldelight")
 }
 
 sqldelight {

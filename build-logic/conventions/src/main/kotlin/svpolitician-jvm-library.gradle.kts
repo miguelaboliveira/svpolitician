@@ -1,18 +1,13 @@
+import com.miguelaboliveira.svpolitician.buildlogic.configureKotlin
+import com.miguelaboliveira.svpolitician.buildlogic.libs
+
 plugins {
     id("org.jetbrains.kotlin.jvm")
     id("org.jmailen.kotlinter")
 }
 
-kotlin {
-    explicitApi()
-    jvmToolchain(21)
+configureKotlin()
 
-    compilerOptions {
-        allWarningsAsErrors = true
-    }
-}
-
-val libs: VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 dependencies {
     implementation(libs.findLibrary("kotlinx.coroutinesCore").get())
     testImplementation(libs.findLibrary("kotlinx.coroutinesTest").get())
