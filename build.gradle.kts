@@ -11,9 +11,3 @@ plugins {
     alias(libs.plugins.doctor) apply false
     alias(libs.plugins.cash.sqlDelight) apply false
 }
-
-buildscript {
-    dependencies {
-        // classpath(libs.kotlinter.compose.rules)
-    }
-}

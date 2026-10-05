@@ -23,10 +23,10 @@ dependencies {
     api(libs.cash.sqlDelightRuntime)
 }
 
-tasks.withType<LintTask> {
+tasks.withType<LintTask>().configureEach {
     exclude { it.file.path.contains("/generated") }
 }
 
-tasks.withType<FormatTask> {
+tasks.withType<FormatTask>().configureEach {
     exclude { it.file.path.contains("/generated") }
 }
