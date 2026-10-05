@@ -1,7 +1,7 @@
 # SVPolitician
 
-![kotlin-version](https://img.shields.io/badge/kotlin-2.0.0-blue)
-![gradle-version](https://img.shields.io/badge/gradle-8.9-green)
+![kotlin-version](https://img.shields.io/badge/kotlin-2.4.20-blue)
+![gradle-version](https://img.shields.io/badge/gradle-9.8.0-green)
 
 SVPolitician is a multi-module Android project that aims to provide a user-friendly interface for
 retrieving and displaying information from [Techy API](https://techy-api.vercel.app/). The project
