@@ -15,7 +15,7 @@ kotlinx-coroutines = "1.11.0"
 kotlinx-serialization = "1.11.0"
 plugin-android = "9.4.1"
 plugin-kotlinter = "5.7.0"
-square-okhttp = "5.5.0"
+square-okhttp = "5.5.1"
 square-retrofit2 = "3.0.0"
 cash-sqlDelight = "2.4.0"
 
