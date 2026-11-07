@@ -17,7 +17,7 @@ plugin-android = "9.4.1"
 plugin-kotlinter = "5.7.0"
 square-okhttp = "5.5.0"
 square-retrofit2 = "3.0.0"
-cash-sqlDelight = "2.4.0"
+cash-sqlDelight = "2.4.1"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
